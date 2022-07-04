@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "BattleRise.DesktopClient/1.0.0": {
+        "dependencies": {
+          "BattleRise.Models": "1.0.0"
+        },
         "runtime": {
           "BattleRise.DesktopClient.dll": {}
+        }
+      },
+      "BattleRise.Models/1.0.0": {
+        "runtime": {
+          "BattleRise.Models.dll": {}
         }
       }
     }
   },
   "libraries": {
     "BattleRise.DesktopClient/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BattleRise.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="Начать игру" Height="400" Width="300" WindowStartupLocation="CenterOwner">
     <Grid>
-        <Button Content="Продолжить" Height="20"/>
+        <Button Content="Продолжить" Height="20" Click="OnContinueClick"/>
         <Button Content="Начать новую игру" Height="20" Margin="0,107,0,157"/>
-        <Button Content="Выйти из аккаунта" Height="20" Margin="0,157,0,107"/>
+        <Button Content="Выйти из аккаунта" Height="20" Margin="0,157,0,107" Click="OnExitClick"/>
     </Grid>
 </Window>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iHrhTSYADKjcb4L0/LeNenNyyC/UHy+qQOAEoVDLQRnRhddFc71SjE/m65voPWcq0+Fz3tq6Oy6U9gVTmRoI+w==",
+  "dgSpecHash": "MKXY249ppDfZeF5PSJ2nqcXnt+6OSsMAOfOKw8duvHdNBM2aNVPcCDI2M1uxoBKk/5eYbXHEcxxjpnfxPh/jHA==",
   "success": true,
-  "projectFilePath": "D:\\Школьные задания\\Программирование\\BattleRise\\BattleRise.Models\\BattleRise.Models.csproj",
+  "projectFilePath": "D:\\Школьные задания\\Программирование\\BattleRiseGit\\BattleRise.Models\\BattleRise.Models.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

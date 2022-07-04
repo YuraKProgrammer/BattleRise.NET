@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using BattleRise.Models;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -26,7 +27,8 @@ namespace BattleRise.DesktopClient.Windows
 
         public void Ok_Click(object sender, RoutedEventArgs e)
         {
-            var window = new StartGameWindow { Owner = this };
+            var save = new Save(DateTime.Now,2,new Resources(100,0),new Army(new List<IFighter>()),new List<int>());
+            var window = new StartGameWindow (save) { Owner = this };
             window.Show();
         }
     }

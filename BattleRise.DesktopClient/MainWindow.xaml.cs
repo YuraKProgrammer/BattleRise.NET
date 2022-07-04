@@ -24,10 +24,10 @@ namespace BattleRise.DesktopClient
         public MainWindow()
         {
             InitializeComponent();
-            var sett = new settings();
+            var sett = new Settings();
             if (sett.Version != null)
             {
-                text_version.Text = "Версия " + sett.Version;
+                text_version.Text = "Версия: " + sett.Version;
             }
         }
 

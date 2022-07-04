@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Школьные задания\Программирование\BattleRise\BattleRise.DesktopClient\obj\Debug\net6.0-windows\
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\obj\Debug\net6.0-windows\
 BattleRise.DesktopClient
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\Школьные задания\Программирование\BattleRise\BattleRise.DesktopClient\App.xaml
-4284336066
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\App.xaml
+51777063965
 
-9617834473
-1942030480316
-MainWindow.xaml;Windows\AboutWindow.xaml;Windows\LoginWindow.xaml;Windows\StartGameWindow.xaml;
+10-1616079857
+195957947812
+MainWindow.xaml;Windows\AboutWindow.xaml;Windows\GameWindow.xaml;Windows\LoginWindow.xaml;Windows\StartGameWindow.xaml;
 
 True
 

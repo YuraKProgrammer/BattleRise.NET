@@ -10,7 +10,7 @@ namespace BattleRise.Models
     {
         public int id { get; set; }
         public double health { get; set; }
-        public double damage { get; set; }
+        public double damage { get; }
         public int speed { get; }
         public int range { get; }
         public int cost { get; }

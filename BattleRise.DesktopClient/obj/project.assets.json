@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows7.0": {}
+    "net6.0-windows7.0": {
+      "BattleRise.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/BattleRise.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BattleRise.Models.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "BattleRise.Models/1.0.0": {
+      "type": "project",
+      "path": "../BattleRise.Models/BattleRise.Models.csproj",
+      "msbuildProject": "../BattleRise.Models/BattleRise.Models.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0-windows7.0": []
+    "net6.0-windows7.0": [
+      "BattleRise.Models >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Юра\\.nuget\\packages\\": {}
@@ -13,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Школьные задания\\Программирование\\BattleRise\\BattleRise.DesktopClient\\BattleRise.DesktopClient.csproj",
+      "projectUniqueName": "D:\\Школьные задания\\Программирование\\BattleRiseGit\\BattleRise.DesktopClient\\BattleRise.DesktopClient.csproj",
       "projectName": "BattleRise.DesktopClient",
-      "projectPath": "D:\\Школьные задания\\Программирование\\BattleRise\\BattleRise.DesktopClient\\BattleRise.DesktopClient.csproj",
+      "projectPath": "D:\\Школьные задания\\Программирование\\BattleRiseGit\\BattleRise.DesktopClient\\BattleRise.DesktopClient.csproj",
       "packagesPath": "C:\\Users\\Юра\\.nuget\\packages\\",
-      "outputPath": "D:\\Школьные задания\\Программирование\\BattleRise\\BattleRise.DesktopClient\\obj\\",
+      "outputPath": "D:\\Школьные задания\\Программирование\\BattleRiseGit\\BattleRise.DesktopClient\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Юра\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -33,7 +52,11 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Школьные задания\\Программирование\\BattleRiseGit\\BattleRise.Models\\BattleRise.Models.csproj": {
+              "projectPath": "D:\\Школьные задания\\Программирование\\BattleRiseGit\\BattleRise.Models\\BattleRise.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

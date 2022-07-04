@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="О программе" Height="450" Width="800" ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
     <Grid>
-        <TextBlock Margin="10" Text="Эта программа создана Калантырем Ю.С. Версия: PreAlpha"/>
+        <TextBlock Margin="10" Text="Эта программа создана Калантырем Ю.С. Версия: " x:Name="About" FontSize="20"/>
     </Grid>
 </Window>

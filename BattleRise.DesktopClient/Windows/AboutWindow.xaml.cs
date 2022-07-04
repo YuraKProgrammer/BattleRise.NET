@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BattleRise.DesktopClient;
 
 namespace BattleRise.DesktopClient.Windows
 {
@@ -22,6 +23,11 @@ namespace BattleRise.DesktopClient.Windows
         public AboutWindow()
         {
             InitializeComponent();
+            var sett = new Settings();
+            if (sett.Version != null)
+            {
+                About.Text = "Эта программа создана Калантырем Ю.С. Версия: " + sett.Version;
+            }
         }
     }
 }
