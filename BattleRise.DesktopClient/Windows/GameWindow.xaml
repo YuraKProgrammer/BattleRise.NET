@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BattleRise.DesktopClient.Windows"
         mc:Ignorable="d"
-        Title="GameWindow" Height="1060" Width="1900">
+        Title="GameWindow" Height="760" Width="1500">
     <Grid>
-        
+        <TextBlock Text="" x:Name="text_Res" Margin="20,20,20,650" FontSize="20"/>
+        <TextBlock Text="" x:Name="text_CastleLevel" Margin="520,299,520,401" FontSize="20"/>
+        <Button Content="" x:Name="button_LevelUp" Height="30" Width="210" FontSize="20" Click="CastLevelUp"/>
     </Grid>
 </Window>

@@ -27,7 +27,7 @@ namespace BattleRise.DesktopClient.Windows
 
         public void Ok_Click(object sender, RoutedEventArgs e)
         {
-            var save = new Save(DateTime.Now,2,new Resources(100,0),new Army(new List<IFighter>()),new List<int>());
+            var save = new Save(DateTime.Now,2,new Resources(1000000,0),new Army(new List<IFighter>()),new List<int>(), 1);
             var window = new StartGameWindow (save) { Owner = this };
             window.Show();
         }

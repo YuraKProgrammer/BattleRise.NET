@@ -20,11 +20,44 @@ namespace BattleRise.DesktopClient.Windows
     /// </summary>
     public partial class GameWindow : Window
     {
-        private Save _save;
+        private DateTime _saveTime;
+        private int _userId;
+        private List<int> _fightersLevels;
+        private Army _army;
+        private int _coins;
+        private int _diamonds;
+        private int _castleLevel;
+        private const int secLevelCost = 2500;
+        private int levelUpCost;
         public GameWindow(Save save)
         {
             InitializeComponent();
-            this._save = save;
+            _saveTime = save.saveTime;
+            _userId = save.userId;
+            _fightersLevels = save.fightersLevels;
+            _army = save.army;
+            _coins = save.res.coins;
+            _diamonds = save.res.diamonds;
+            _castleLevel = save.castleLevel;
+            Update();
+        }
+
+        private void Update()
+        {
+            text_Res.Text = "Монеты: " + _coins + " Алмазы: " + _diamonds + " Армия: " + _army.GetFighters().Count();
+            text_CastleLevel.Text = "Замок Уровень: "+_castleLevel.ToString();
+            levelUpCost = (int)(secLevelCost * Math.Pow(2, _castleLevel - 1));
+            button_LevelUp.Content = "Улучшить за " + levelUpCost;
+        }
+        
+        public void CastLevelUp(object sender, RoutedEventArgs e)
+        { 
+            if (_coins >= levelUpCost)
+            {
+                _coins -= levelUpCost;
+                _castleLevel++;
+                Update();
+            }
         }
     }
 }
