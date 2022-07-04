@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BattleRise.DesktopClient", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BattleRise.Models", "BattleRise.Models\BattleRise.Models.csproj", "{CC78F8E0-472A-4C62-A7C1-03EAEC4438A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaveStorage", "SaveStorage\SaveStorage.csproj", "{B61D1FC1-B8BE-49C4-88B4-1476B93650BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleRise.SaveStorage", "SaveStorage\BattleRise.SaveStorage.csproj", "{B61D1FC1-B8BE-49C4-88B4-1476B93650BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

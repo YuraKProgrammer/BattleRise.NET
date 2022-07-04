@@ -39,5 +39,15 @@ namespace BattleRise.Models
         {
             res.diamonds = diamonds;
         }
+
+        public int GetUserId()
+        {
+            return userId;
+        }
+
+        public DateTime GetSaveTime()
+        {
+            return saveTime;
+        }
     }
 }

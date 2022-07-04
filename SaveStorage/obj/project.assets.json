@@ -69,9 +69,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Школьные задания\\Программирование\\BattleRiseGit\\SaveStorage\\SaveStorage.csproj",
-      "projectName": "SaveStorage",
-      "projectPath": "D:\\Школьные задания\\Программирование\\BattleRiseGit\\SaveStorage\\SaveStorage.csproj",
+      "projectUniqueName": "D:\\Школьные задания\\Программирование\\BattleRiseGit\\SaveStorage\\BattleRise.SaveStorage.csproj",
+      "projectName": "BattleRise.SaveStorage",
+      "projectPath": "D:\\Школьные задания\\Программирование\\BattleRiseGit\\SaveStorage\\BattleRise.SaveStorage.csproj",
       "packagesPath": "C:\\Users\\Юра\\.nuget\\packages\\",
       "outputPath": "D:\\Школьные задания\\Программирование\\BattleRiseGit\\SaveStorage\\obj\\",
       "projectStyle": "PackageReference",

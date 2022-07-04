@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BattleRise.Models\BattleRise.Models.csproj" />
+    <ProjectReference Include="..\SaveStorage\BattleRise.SaveStorage.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -10,6 +10,7 @@
         <TextBlock Text="" x:Name="text_Res" Margin="20,20,20,650" FontSize="20"/>
         <TextBlock Text="" x:Name="text_CastleLevel" Margin="645,299,520,401" FontSize="20"/>
         <Button Content="" x:Name="button_LevelUp" Height="30" Width="210" FontSize="20" Click="CastLevelUp"/>
-        <Button Content="Войти в замок" x:Name="button_ComeIn" Height="30" Width="210" FontSize="20" Click="ComeInClick" Margin="645,408,645,306"/>
+        <Button Content="Войти в замок" x:Name="button_ComeIn" Height="30" Width="210" FontSize="20" Click="ComeInClick" Margin="645,413,645,301"/>
+        <Button Content="Сохранить игру" x:Name="button_Save" Height="30" Width="210" FontSize="20" Click="OnSaveClick" Margin="10,704,1280,10"/>
     </Grid>
 </Window>

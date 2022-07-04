@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BattleRise.Models;
+using BattleRise.SaveStorage;
 
 namespace BattleRise.DesktopClient.Windows
 {
@@ -27,9 +28,10 @@ namespace BattleRise.DesktopClient.Windows
         private int _coins;
         private int _diamonds;
         private int _castleLevel;
-        private const int secLevelCost = 2500;
-        private const int maxCatleLevel = 5;
-        private int levelUpCost;
+        private const int _secLevelCost = 2500;
+        private const int _maxCatleLevel = 5;
+        private int _levelUpCost;
+        private TempSaveStorage _saveStorage = new TempSaveStorage();
         public GameWindow(Save save)
         {
             InitializeComponent();
@@ -47,15 +49,15 @@ namespace BattleRise.DesktopClient.Windows
         {
             text_Res.Text = "Монеты: " + _coins + " Алмазы: " + _diamonds + " Армия: " + _army.GetFighters().Count();
             text_CastleLevel.Text = "Замок Уровень: "+_castleLevel.ToString();
-            levelUpCost = (int)(secLevelCost * Math.Pow(2, _castleLevel - 1));
-            button_LevelUp.Content = "Улучшить за " + levelUpCost;
+            _levelUpCost = (int)(_secLevelCost * Math.Pow(2, _castleLevel - 1));
+            button_LevelUp.Content = "Улучшить за " + _levelUpCost;
         }
         
         public void CastLevelUp(object sender, RoutedEventArgs e)
         { 
-            if (_coins >= levelUpCost && _castleLevel+1<=maxCatleLevel)
+            if (_coins >= _levelUpCost && _castleLevel+1<=_maxCatleLevel)
             {
-                _coins -= levelUpCost;
+                _coins -= _levelUpCost;
                 _castleLevel++;
                 Update();
             }
@@ -65,6 +67,11 @@ namespace BattleRise.DesktopClient.Windows
         {
             var window = new CastleWindow(new Save(_saveTime, _userId, new Resources(_coins, _diamonds), _army, _fightersLevels, _castleLevel));
             window.ShowDialog();
+        }
+
+        public void OnSaveClick(object sender, RoutedEventArgs e)
+        {
+            _saveStorage.Save(new Save(DateTime.Now, _userId, new Resources(_coins, _diamonds), _army, _fightersLevels, _castleLevel));
         }
     }
 }

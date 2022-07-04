@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BattleRise.SaveStorage;
 
 namespace BattleRise.DesktopClient.Windows
 {
@@ -20,6 +21,7 @@ namespace BattleRise.DesktopClient.Windows
     /// </summary>
     public partial class LoginWindow : Window
     {
+        private TempSaveStorage _saveStorage = new TempSaveStorage();
         public LoginWindow()
         {
             InitializeComponent();
@@ -27,9 +29,24 @@ namespace BattleRise.DesktopClient.Windows
 
         public void Ok_Click(object sender, RoutedEventArgs e)
         {
-            var save = new Save(DateTime.Now,2,new Resources(1000000,0),new Army(new List<IFighter>()),new List<int>(), 1);
-            var window = new StartGameWindow (save) { Owner = this };
-            window.Show();
+            var userId = 0;
+            if (_tb.Text == "yura" && _pb.Password == "Yura2006")
+            {
+                userId = 2;
+            }
+            if (userId != 0) {
+                var save = _saveStorage.Load(userId);
+                if (save == null)
+                {
+                    save = new Save(DateTime.Now, userId, new Resources(100, 0), new Army(new List<IFighter>()), new List<int>(), 1);
+                }
+                var window = new StartGameWindow(save) { Owner = this };
+                window.Show();
+            }
+            else
+            {
+                throw new Exception("Непраильный логин или пароль");
+            }
         }
     }
 }

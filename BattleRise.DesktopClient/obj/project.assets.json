@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
+      "Newtonsoft.Json/13.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "BattleRise.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -11,19 +20,66 @@
         "runtime": {
           "bin/placeholder/BattleRise.Models.dll": {}
         }
+      },
+      "BattleRise.SaveStorage/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "BattleRise.Models": "1.0.0",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BattleRise.SaveStorage.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BattleRise.SaveStorage.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "Newtonsoft.Json/13.0.1": {
+      "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.1.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
     "BattleRise.Models/1.0.0": {
       "type": "project",
       "path": "../BattleRise.Models/BattleRise.Models.csproj",
       "msbuildProject": "../BattleRise.Models/BattleRise.Models.csproj"
+    },
+    "BattleRise.SaveStorage/1.0.0": {
+      "type": "project",
+      "path": "../SaveStorage/BattleRise.SaveStorage.csproj",
+      "msbuildProject": "../SaveStorage/BattleRise.SaveStorage.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
-      "BattleRise.Models >= 1.0.0"
+      "BattleRise.Models >= 1.0.0",
+      "BattleRise.SaveStorage >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -55,6 +111,9 @@
           "projectReferences": {
             "D:\\Школьные задания\\Программирование\\BattleRiseGit\\BattleRise.Models\\BattleRise.Models.csproj": {
               "projectPath": "D:\\Школьные задания\\Программирование\\BattleRiseGit\\BattleRise.Models\\BattleRise.Models.csproj"
+            },
+            "D:\\Школьные задания\\Программирование\\BattleRiseGit\\SaveStorage\\BattleRise.SaveStorage.csproj": {
+              "projectPath": "D:\\Школьные задания\\Программирование\\BattleRiseGit\\SaveStorage\\BattleRise.SaveStorage.csproj"
             }
           }
         }

@@ -1,0 +1,15 @@
+D:\Школьные задания\Программирование\BattleRiseGit\SaveStorage\bin\Debug\net6.0\BattleRise.SaveStorage.deps.json
+D:\Школьные задания\Программирование\BattleRiseGit\SaveStorage\bin\Debug\net6.0\BattleRise.SaveStorage.dll
+D:\Школьные задания\Программирование\BattleRiseGit\SaveStorage\bin\Debug\net6.0\BattleRise.SaveStorage.pdb
+D:\Школьные задания\Программирование\BattleRiseGit\SaveStorage\bin\Debug\net6.0\BattleRise.Models.dll
+D:\Школьные задания\Программирование\BattleRiseGit\SaveStorage\bin\Debug\net6.0\BattleRise.Models.pdb
+D:\Школьные задания\Программирование\BattleRiseGit\SaveStorage\obj\Debug\net6.0\BattleRise.SaveStorage.csproj.AssemblyReference.cache
+D:\Школьные задания\Программирование\BattleRiseGit\SaveStorage\obj\Debug\net6.0\BattleRise.SaveStorage.GeneratedMSBuildEditorConfig.editorconfig
+D:\Школьные задания\Программирование\BattleRiseGit\SaveStorage\obj\Debug\net6.0\BattleRise.SaveStorage.AssemblyInfoInputs.cache
+D:\Школьные задания\Программирование\BattleRiseGit\SaveStorage\obj\Debug\net6.0\BattleRise.SaveStorage.AssemblyInfo.cs
+D:\Школьные задания\Программирование\BattleRiseGit\SaveStorage\obj\Debug\net6.0\BattleRise.SaveStorage.csproj.CoreCompileInputs.cache
+D:\Школьные задания\Программирование\BattleRiseGit\SaveStorage\obj\Debug\net6.0\BattleRise.SaveStorage.csproj.CopyComplete
+D:\Школьные задания\Программирование\BattleRiseGit\SaveStorage\obj\Debug\net6.0\BattleRise.SaveStorage.dll
+D:\Школьные задания\Программирование\BattleRiseGit\SaveStorage\obj\Debug\net6.0\refint\BattleRise.SaveStorage.dll
+D:\Школьные задания\Программирование\BattleRiseGit\SaveStorage\obj\Debug\net6.0\BattleRise.SaveStorage.pdb
+D:\Школьные задания\Программирование\BattleRiseGit\SaveStorage\obj\Debug\net6.0\ref\BattleRise.SaveStorage.dll

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "H6spSlPud8hGByVPVyGun6RF9dYrkZIOPMQOG3hp1L0c05fmT2LqKH92dxWdpIsDyC/VRR/mzsO1aPoDZeKiwA==",
+  "dgSpecHash": "bfyskGWbMOMiYXN3k8hAWKioy69wiGUE7+dMpOU5AP4Jed2ITxCrVAaRguQTGv5RtXjUR1YWnf+kTSdeldlftA==",
   "success": true,
   "projectFilePath": "D:\\Школьные задания\\Программирование\\BattleRiseGit\\BattleRise.DesktopClient\\BattleRise.DesktopClient.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Юра\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
