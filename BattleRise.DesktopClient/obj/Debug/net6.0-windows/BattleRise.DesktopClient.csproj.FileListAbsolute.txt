@@ -57,3 +57,5 @@ D:\Школьные задания\Программирование\BattleRiseGi
 D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\obj\Debug\net6.0-windows\BattleRise.DesktopClient.csproj.CopyComplete
 D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\obj\Debug\net6.0-windows\Windows\GameWindow.g.cs
 D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\obj\Debug\net6.0-windows\Windows\GameWindow.baml
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\obj\Debug\net6.0-windows\Windows\CastleWindow.g.cs
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\obj\Debug\net6.0-windows\Windows\CastleWindow.baml

@@ -21,6 +21,7 @@ namespace BattleRise.Models
         int GetY();
         Side GetSide();
         int GetId();
+        string GetName();
         void SetId(int id);
     }
 }

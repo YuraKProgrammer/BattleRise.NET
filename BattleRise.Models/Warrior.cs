@@ -8,6 +8,7 @@ namespace BattleRise.Models
 {
     internal class Warrior : IFighter
     {
+        public string name { get; }
         public int id { get; set; }
         public double health { get; set; }
         public double damage { get; }
@@ -25,6 +26,7 @@ namespace BattleRise.Models
         {
             this.x = x;
             this.y = y;
+            name = "Warrior";
             health = 10;
             damage = 3;
             speed = 2;
@@ -141,6 +143,11 @@ namespace BattleRise.Models
         public void SetId(int id)
         {
             this.id = id;
+        }
+
+        public string GetName()
+        {
+            return name;
         }
     }
 }

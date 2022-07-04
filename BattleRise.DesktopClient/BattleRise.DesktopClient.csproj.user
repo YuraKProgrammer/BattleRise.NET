@@ -10,6 +10,9 @@
     <Compile Update="Windows\AboutWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Windows\CastleWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Windows\GameWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,6 +28,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\AboutWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\CastleWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\GameWindow.xaml">

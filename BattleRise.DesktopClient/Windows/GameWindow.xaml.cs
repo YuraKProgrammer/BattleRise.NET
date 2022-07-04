@@ -28,6 +28,7 @@ namespace BattleRise.DesktopClient.Windows
         private int _diamonds;
         private int _castleLevel;
         private const int secLevelCost = 2500;
+        private const int maxCatleLevel = 5;
         private int levelUpCost;
         public GameWindow(Save save)
         {
@@ -52,12 +53,18 @@ namespace BattleRise.DesktopClient.Windows
         
         public void CastLevelUp(object sender, RoutedEventArgs e)
         { 
-            if (_coins >= levelUpCost)
+            if (_coins >= levelUpCost && _castleLevel+1<=maxCatleLevel)
             {
                 _coins -= levelUpCost;
                 _castleLevel++;
                 Update();
             }
+        }
+
+        public void ComeInClick(object sender, RoutedEventArgs e)
+        {
+            var window = new CastleWindow(new Save(_saveTime, _userId, new Resources(_coins, _diamonds), _army, _fightersLevels, _castleLevel));
+            window.ShowDialog();
         }
     }
 }

@@ -53,7 +53,7 @@ namespace BattleRise.DesktopClient.Windows {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BattleRise.DesktopClient;component/windows/startgamewindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BattleRise.DesktopClient;V1.0.0.0;component/windows/startgamewindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Windows\StartGameWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
