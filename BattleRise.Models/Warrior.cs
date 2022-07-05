@@ -32,7 +32,6 @@ namespace BattleRise.Models
             speed = 2;
             range = 1;
             cost = 10;
-            level = 1;
             this.level = level;
             this.health = health * Math.Pow(1.1, level - 1);
             this.damage = damage * Math.Pow(1.1, level - 1);

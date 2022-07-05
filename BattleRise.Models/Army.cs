@@ -49,6 +49,10 @@ namespace BattleRise.Models
 
         public void AddFighter(IFighter fighter)
         {
+            if (GetFighters() == null)
+            {
+                _fighters = new List<IFighter>();
+            }
             fighter.SetId(lastId+1);
             _fighters.Add(fighter);
         }

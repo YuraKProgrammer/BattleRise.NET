@@ -53,7 +53,7 @@ namespace BattleRise.DesktopClient.Windows
             }
             else
             {
-                text_Res.Text = "Монеты: " + _coins + " Алмазы: " + _diamonds + " Армия: НЕТ";
+                text_Res.Text = "Монеты: " + _coins + " Алмазы: " + _diamonds + " Армия: 0";
             }
             text_CastleLevel.Text = "Замок Уровень: "+_castleLevel.ToString();
             _levelUpCost = (int)(_secLevelCost * Math.Pow(2, _castleLevel - 1));
