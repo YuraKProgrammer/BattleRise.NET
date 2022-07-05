@@ -23,7 +23,7 @@ namespace BattleRise.DesktopClient.Windows
     {
         private DateTime _saveTime;
         private int _userId;
-        private List<int> _fightersLevels;
+        private int[] _fightersLevels;
         private Army _army;
         private int _coins;
         private int _diamonds;
@@ -79,6 +79,7 @@ namespace BattleRise.DesktopClient.Windows
         public void OnSaveClick(object sender, RoutedEventArgs e)
         {
             _saveStorage.Save(new Save(DateTime.Now, _userId, new Resources(_coins, _diamonds), _army, _fightersLevels, _castleLevel));
+            MessageBox.Show("Игра сохранена", "Сохранение");
         }
     }
 }

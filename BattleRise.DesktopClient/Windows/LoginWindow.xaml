@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BattleRise.DesktopClient.Windows"
         mc:Ignorable="d"
-        Title="Войти" Height="150" Width="200" ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
+        Title="Войти" Height="150" Width="200" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
     </Window.Resources>

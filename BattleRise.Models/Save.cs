@@ -16,11 +16,11 @@ namespace BattleRise.Models
 
         public Army army { get; }
 
-        public List<int> fightersLevels { get; }
+        public int[] fightersLevels { get; }
 
         public int castleLevel { get; }
 
-        public Save (DateTime saveTime, int userId, Resources res, Army army, List<int> fightersLevels, int castleLevel)
+        public Save (DateTime saveTime, int userId, Resources res, Army army, int[] fightersLevels, int castleLevel)
         {
             this.saveTime = saveTime;
             this.userId = userId;

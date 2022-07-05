@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleRise.Models
 {
-    internal class Warrior : IFighter
+    public class Warrior : IFighter
     {
         public string name { get; }
         public int id { get; set; }
@@ -26,7 +26,7 @@ namespace BattleRise.Models
         {
             this.x = x;
             this.y = y;
-            name = "Warrior";
+            name = "Боец";
             health = 10;
             damage = 3;
             speed = 2;
@@ -148,6 +148,26 @@ namespace BattleRise.Models
         public string GetName()
         {
             return name;
+        }
+
+        public int GetLevel()
+        {
+            return level;
+        }
+
+        public double GetDamage()
+        {
+            return damage;
+        }
+
+        public int GetSpeed()
+        {
+            return speed;
+        }
+
+        public int GetRange()
+        {
+            return range;
         }
     }
 }

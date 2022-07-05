@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BattleRise.DesktopClient.Windows"
         mc:Ignorable="d"
-        Title="О программе" Height="450" Width="800" ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
+        Title="О программе" Height="450" Width="800" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
     <Grid>
         <TextBlock Margin="10" Text="Эта программа создана Калантырем Ю.С. Версия: " x:Name="About" FontSize="20"/>
     </Grid>

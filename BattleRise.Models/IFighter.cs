@@ -23,5 +23,9 @@ namespace BattleRise.Models
         int GetId();
         string GetName();
         void SetId(int id);
+        int GetLevel();
+        double GetDamage();
+        int GetSpeed();
+        int GetRange();
     }
 }
