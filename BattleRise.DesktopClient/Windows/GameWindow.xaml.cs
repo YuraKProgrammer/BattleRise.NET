@@ -47,7 +47,14 @@ namespace BattleRise.DesktopClient.Windows
 
         private void Update()
         {
-            text_Res.Text = "Монеты: " + _coins + " Алмазы: " + _diamonds + " Армия: " + _army.GetFighters().Count();
+            if (_army.GetFighters() != null)
+            {
+                text_Res.Text = "Монеты: " + _coins + " Алмазы: " + _diamonds + " Армия: " + _army.GetFighters().Count();
+            }
+            else
+            {
+                text_Res.Text = "Монеты: " + _coins + " Алмазы: " + _diamonds + " Армия: НЕТ";
+            }
             text_CastleLevel.Text = "Замок Уровень: "+_castleLevel.ToString();
             _levelUpCost = (int)(_secLevelCost * Math.Pow(2, _castleLevel - 1));
             button_LevelUp.Content = "Улучшить за " + _levelUpCost;

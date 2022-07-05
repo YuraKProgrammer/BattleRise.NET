@@ -25,7 +25,7 @@ namespace BattleRise.DesktopClient {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("PreAlpha 1.3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("PreAlpha 1.4")]
         public string Version {
             get {
                 return ((string)(this["Version"]));

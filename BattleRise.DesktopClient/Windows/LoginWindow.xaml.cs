@@ -30,22 +30,32 @@ namespace BattleRise.DesktopClient.Windows
         public void Ok_Click(object sender, RoutedEventArgs e)
         {
             var userId = 0;
+            bool nw = false;
+            if (_tb.Text == "test" && _pb.Password == "Test123456789")
+            {
+                userId = 1;
+            }
             if (_tb.Text == "yura" && _pb.Password == "Yura2006")
             {
                 userId = 2;
+            }
+            if (_tb.Text == "yusya" && _pb.Password == "Usost")
+            {
+                userId = 3;
             }
             if (userId != 0) {
                 var save = _saveStorage.Load(userId);
                 if (save == null)
                 {
-                    save = new Save(DateTime.Now, userId, new Resources(100, 0), new Army(new List<IFighter>()), new List<int>(), 1);
+                    nw = true;
+                    save = new Save(DateTime.Now, userId, new Resources(100, 0), new Army(new List<IFighter>()), new List<int>() {1,1,1,1,1}, 1);
                 }
-                var window = new StartGameWindow(save) { Owner = this };
+                var window = new StartGameWindow(save, nw) { Owner = this };
                 window.Show();
             }
             else
             {
-                throw new Exception("Непраильный логин или пароль");
+                MessageBox.Show("Неправильный логин или пароль", "Войти");
             }
         }
     }

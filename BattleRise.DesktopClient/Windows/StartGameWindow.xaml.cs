@@ -21,10 +21,13 @@ namespace BattleRise.DesktopClient.Windows
     public partial class StartGameWindow : Window
     {
         private Save _save;
-        public StartGameWindow(Save save)
+        private bool _nw;
+        public StartGameWindow(Save save, bool nw)
         {
             InitializeComponent();
             this._save = save;
+            _nw = nw;
+            TuneControls();
         }
 
         public void OnExitClick(object sender, RoutedEventArgs e)
@@ -36,6 +39,18 @@ namespace BattleRise.DesktopClient.Windows
         {
             var window = new GameWindow(_save) {Owner=this };
             window.Show();
+        }
+
+        public void OnNewClick(object sender, RoutedEventArgs e)
+        {
+            var window = new GameWindow(new Save(DateTime.Now, _save.userId, new Resources(100, 0), new Army(new List<IFighter>()), new List<int>() { 1, 1, 1, 1, 1 }, 1)) { Owner = this };
+            window.Show();
+        }
+
+        private void TuneControls()
+        {
+            if (_nw==true)
+                button_continue.IsEnabled = false;
         }
     }
 }
