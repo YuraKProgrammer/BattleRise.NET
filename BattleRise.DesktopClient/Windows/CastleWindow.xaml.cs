@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ namespace BattleRise.DesktopClient.Windows
         private int _userId;
         private Dictionary<int, IFighter> _fighters = new Dictionary<int, IFighter>();
         private int _currentfighterNumber;
-        private IFighter _currentFighter = new Warrior(1, 1, 1, Side.Friend);
+        private IFighter _currentFighter = new Warrior(1,1,1,Side.Friend);
         private int[] _fightersLevels;
         private Army _army;
         public CastleWindow(Save save)
@@ -56,6 +57,15 @@ namespace BattleRise.DesktopClient.Windows
                     _fighters.Remove(0);
                     _fighters.Add(0, new Warrior(_fightersLevels[0], 1, 1, Side.Friend));
                 }
+                if (!_fighters.ContainsKey(1))
+                {
+                    _fighters.Add(1, new Archer(_fightersLevels[1], 1, 1, Side.Friend));
+                }
+                else
+                {
+                    _fighters.Remove(1);
+                    _fighters.Add(1, new Archer(_fightersLevels[1], 1, 1, Side.Friend));
+                }
             }
         }
 
@@ -70,13 +80,23 @@ namespace BattleRise.DesktopClient.Windows
                 text_money.Text = "Монеты: " + _coins + " Алмазы: " + _diamonds + " Армия: 0";
             }
             _fighters.TryGetValue(_currentfighterNumber, out _currentFighter);
-            text_namelevel.Text = _currentFighter.GetName() + " " + _currentFighter.GetLevel() + " уровня";
-            text_health.Text = "Здоровье: " + _currentFighter.GetHealth();
-            text_damage.Text = "Урон: " + _currentFighter.GetDamage();
-            text_speed.Text = "Скорость: " + _currentFighter.GetSpeed();
-            text_range.Text = "Дальность: " + _currentFighter.GetRange();
-            button_buy.Content = "Купить за " + _currentFighter.GetCost();
-            button_levelUp.Content = "Улучшить за " + _currentFighter.GetLevelUpCost();
+            if (_currentFighter != null)
+            {
+                text_namelevel.Text = _currentFighter.GetName() + " " + _currentFighter.GetLevel() + " уровня";
+                text_health.Text = "Здоровье: " + _currentFighter.GetHealth();
+                text_damage.Text = "Урон: " + _currentFighter.GetDamage();
+                text_speed.Text = "Скорость: " + _currentFighter.GetSpeed();
+                text_range.Text = "Дальность: " + _currentFighter.GetRange();
+                button_buy.Content = "Купить за " + _currentFighter.GetCost();
+                button_levelUp.Content = "Улучшить за " + _currentFighter.GetLevelUpCost();
+                DrawImage();
+            }
+        }
+
+        private void DrawImage()
+        {
+            string fileFolder = _currentFighter.GetFileFolder();
+            _image.Source = new BitmapImage(new Uri(fileFolder, UriKind.Absolute));
         }
 
         public void OnBuyClick(object sender, RoutedEventArgs e)
@@ -86,6 +106,10 @@ namespace BattleRise.DesktopClient.Windows
                 _coins -= _currentFighter.GetCost();
                 _army.AddFighter(_currentFighter);
                 Update();
+            }
+            else
+            {
+                MessageBox.Show("Недостаточно монет", "Предупреждение");
             }
         }
 
@@ -98,12 +122,42 @@ namespace BattleRise.DesktopClient.Windows
                 LoadFighters();
                 Update();
             }
+            else
+            {
+                MessageBox.Show("Недостаточно монет", "Предупреждение");
+            }
         }
 
         public void OnExitClick(object sender, RoutedEventArgs e)
         {
             var window = new GameWindow(new Save(DateTime.Now, _userId, new Resources(_coins, _diamonds), _army, _fightersLevels, _castleLevel)) { Owner = this };
             window.Show();
+        }
+
+        public void OnNextClick(object sender, RoutedEventArgs e)
+        {
+            if (_currentfighterNumber++ > _fighters.Count() - 1)
+            {
+                _currentfighterNumber = 0;
+            }
+            else
+            {
+                _currentfighterNumber++;
+            }
+            Update();
+        }
+
+        public void OnPreviousClick(object sender, RoutedEventArgs e)
+        {
+            if (_currentfighterNumber-- < 0)
+            {
+                _currentfighterNumber = _fighters.Count() - 1;
+            }
+            else
+            {
+                _currentfighterNumber--;
+            }
+            Update();
         }
     }
 }

@@ -68,6 +68,10 @@ namespace BattleRise.DesktopClient.Windows
                 _castleLevel++;
                 Update();
             }
+            else
+            {
+                MessageBox.Show("Недостаточно монет","Предупреждение");
+            }
         }
 
         public void ComeInClick(object sender, RoutedEventArgs e)

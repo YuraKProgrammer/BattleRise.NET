@@ -27,5 +27,6 @@ namespace BattleRise.Models
         double GetDamage();
         int GetSpeed();
         int GetRange();
+        string GetFileFolder();
     }
 }

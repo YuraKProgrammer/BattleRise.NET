@@ -21,12 +21,13 @@ namespace BattleRise.Models
         public int y { get; set; }
         public bool isAttack;
         public Side side { get; }
+        public const string fileFolder =@"D:\images\1.jpg";
 
         public Warrior(int level, int x, int y, Side side)
         {
             this.x = x;
             this.y = y;
-            name = "Боец";
+            name = "Солдат";
             health = 10;
             damage = 3;
             speed = 2;
@@ -167,6 +168,11 @@ namespace BattleRise.Models
         public int GetRange()
         {
             return range;
+        }
+
+        public string GetFileFolder()
+        {
+            return fileFolder;
         }
     }
 }

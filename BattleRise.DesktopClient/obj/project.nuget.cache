@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "bfyskGWbMOMiYXN3k8hAWKioy69wiGUE7+dMpOU5AP4Jed2ITxCrVAaRguQTGv5RtXjUR1YWnf+kTSdeldlftA==",
+  "dgSpecHash": "XRX3fRPa5Tu0AbfgS9BA/yHM172MPFzM7iIBuPrkETZsLcjnvuQds/5UYk8Gt9TEUsz4KIUquWKD7xK9ZRPDXg==",
   "success": true,
   "projectFilePath": "D:\\Школьные задания\\Программирование\\BattleRiseGit\\BattleRise.DesktopClient\\BattleRise.DesktopClient.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Юра\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\Юра\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\Юра\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Юра\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }
