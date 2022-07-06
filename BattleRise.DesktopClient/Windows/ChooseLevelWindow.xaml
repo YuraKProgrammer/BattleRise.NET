@@ -11,7 +11,7 @@
         <TextBlock Text="" x:Name="text_army" Height="30" FontSize="20" Margin="0,7,0,247"/>
         <TextBlock Text="" x:Name="text_countOfFighters" Height="30" FontSize="20" Margin="0,112,0,142"/>
         <TextBlock Text="" x:Name="text_reward" Height="30" FontSize="20" Margin="0,77,0,177"/>
-        <Button Content="В бой" Height="30" Margin="0,147,0,107" Click="OnStartClick"/>
+        <Button Content="В бой" x:Name="button_battle" Height="30" Margin="0,147,0,107" Click="OnStartClick"/>
         <Button Content="Предыдущий" Height="30" Margin="0,182,230,72" Click="OnPreviousClick"/>
         <Button Content="Следующий" Height="30" Margin="230,182,0,72" Click="OnNextClick"/>
         <Button Content="Выход" Height="30" Margin="0,254,0,0" Click="OnExitClick"/>

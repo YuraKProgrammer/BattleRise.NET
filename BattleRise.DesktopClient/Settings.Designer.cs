@@ -25,10 +25,19 @@ namespace BattleRise.DesktopClient {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("PreAlpha 1.8")]
+        [global::System.Configuration.DefaultSettingValueAttribute("PreAlpha 1.9")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://kalantyr.ru/auth")]
+        public string AuthServiceUrl {
+            get {
+                return ((string)(this["AuthServiceUrl"]));
             }
         }
     }

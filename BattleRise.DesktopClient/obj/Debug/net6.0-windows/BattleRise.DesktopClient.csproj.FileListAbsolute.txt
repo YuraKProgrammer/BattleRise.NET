@@ -66,3 +66,7 @@ D:\Школьные задания\Программирование\BattleRiseGi
 D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\obj\Debug\net6.0-windows\Windows\ChooseLevelWindow.baml
 D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\bin\Debug\net6.0-windows\BattleRise.LevelStorage.dll
 D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\bin\Debug\net6.0-windows\BattleRise.LevelStorage.pdb
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\bin\Debug\net6.0-windows\Kalantyr.Auth.Client.dll
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\bin\Debug\net6.0-windows\Kalantyr.Auth.Models.dll
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\bin\Debug\net6.0-windows\Kalantyr.Web.dll
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\bin\Debug\net6.0-windows\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll

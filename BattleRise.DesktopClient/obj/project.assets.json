@@ -2,6 +2,31 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
+      "Kalantyr.Auth.Client/1.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions": "6.0.5"
+        },
+        "compile": {
+          "lib/net6.0/Kalantyr.Auth.Client.dll": {},
+          "lib/net6.0/Kalantyr.Auth.Models.dll": {},
+          "lib/net6.0/Kalantyr.Web.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Kalantyr.Auth.Client.dll": {},
+          "lib/net6.0/Kalantyr.Auth.Models.dll": {},
+          "lib/net6.0/Kalantyr.Web.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions/6.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll": {}
+        }
+      },
       "Microsoft.Win32.SystemEvents/6.0.0": {
         "type": "package",
         "compile": {
@@ -95,6 +120,39 @@
     }
   },
   "libraries": {
+    "Kalantyr.Auth.Client/1.0.2": {
+      "sha512": "NS8LxTEUVjVi1eIBQRrJHp/wVVlv9lcA7g3U6ksB7NVBPuIKFZOQJeqvnYMN8Hj4Xc8cdSU5RYuUD4/NXsqZiw==",
+      "type": "package",
+      "path": "kalantyr.auth.client/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "kalantyr.auth.client.1.0.2.nupkg.sha512",
+        "kalantyr.auth.client.nuspec",
+        "lib/net6.0/Kalantyr.Auth.Client.dll",
+        "lib/net6.0/Kalantyr.Auth.Models.dll",
+        "lib/net6.0/Kalantyr.Web.dll"
+      ]
+    },
+    "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions/6.0.5": {
+      "sha512": "SfM34WtYm+uAQcp5kiY05dWcrLUuiw/sUFsDi+I89ZQCgUclJdJJqVt+8Wh/euvjh6KcEI6dNXYVgLccbiAXlw==",
+      "type": "package",
+      "path": "microsoft.extensions.diagnostics.healthchecks.abstractions/6.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll",
+        "lib/net461/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.xml",
+        "lib/net6.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll",
+        "lib/net6.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.xml",
+        "microsoft.extensions.diagnostics.healthchecks.abstractions.6.0.5.nupkg.sha512",
+        "microsoft.extensions.diagnostics.healthchecks.abstractions.nuspec"
+      ]
+    },
     "Microsoft.Win32.SystemEvents/6.0.0": {
       "sha512": "hqTM5628jSsQiv+HGpiq3WKBl2c8v1KZfby2J6Pr7pEPlK9waPdgEO6b8A/+/xn/yZ9ulv8HuqK71ONy2tg67A==",
       "type": "package",
@@ -211,6 +269,7 @@
       "BattleRise.LevelStorage >= 1.0.0",
       "BattleRise.Models >= 1.0.0",
       "BattleRise.SaveStorage >= 1.0.0",
+      "Kalantyr.Auth.Client >= 1.0.2",
       "System.Drawing.Common >= 6.0.0"
     ]
   },
@@ -263,6 +322,10 @@
       "net6.0-windows7.0": {
         "targetAlias": "net6.0-windows",
         "dependencies": {
+          "Kalantyr.Auth.Client": {
+            "target": "Package",
+            "version": "[1.0.2, )"
+          },
           "System.Drawing.Common": {
             "target": "Package",
             "version": "[6.0.0, )"
