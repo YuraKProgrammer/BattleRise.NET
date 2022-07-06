@@ -54,6 +54,20 @@
           }
         }
       },
+      "BattleRise.LevelStorage/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "BattleRise.Models": "1.0.0",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BattleRise.LevelStorage.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BattleRise.LevelStorage.dll": {}
+        }
+      },
       "BattleRise.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -176,6 +190,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "BattleRise.LevelStorage/1.0.0": {
+      "type": "project",
+      "path": "../BattleRise.LevelStorage/BattleRise.LevelStorage.csproj",
+      "msbuildProject": "../BattleRise.LevelStorage/BattleRise.LevelStorage.csproj"
+    },
     "BattleRise.Models/1.0.0": {
       "type": "project",
       "path": "../BattleRise.Models/BattleRise.Models.csproj",
@@ -189,6 +208,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "BattleRise.LevelStorage >= 1.0.0",
       "BattleRise.Models >= 1.0.0",
       "BattleRise.SaveStorage >= 1.0.0",
       "System.Drawing.Common >= 6.0.0"
@@ -221,6 +241,9 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
+            "D:\\Школьные задания\\Программирование\\BattleRiseGit\\BattleRise.LevelStorage\\BattleRise.LevelStorage.csproj": {
+              "projectPath": "D:\\Школьные задания\\Программирование\\BattleRiseGit\\BattleRise.LevelStorage\\BattleRise.LevelStorage.csproj"
+            },
             "D:\\Школьные задания\\Программирование\\BattleRiseGit\\BattleRise.Models\\BattleRise.Models.csproj": {
               "projectPath": "D:\\Школьные задания\\Программирование\\BattleRiseGit\\BattleRise.Models\\BattleRise.Models.csproj"
             },

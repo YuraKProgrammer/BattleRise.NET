@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\App.xaml
-61964581236
+7-1484896661
 
-9-1001173596
-198-392528534
-MainWindow.xaml;Windows\AboutWindow.xaml;Windows\CastleWindow.xaml;Windows\GameWindow.xaml;Windows\LoginWindow.xaml;Windows\StartGameWindow.xaml;
+1013991669
+199-155555500
+MainWindow.xaml;Windows\AboutWindow.xaml;Windows\CastleWindow.xaml;Windows\ChooseLevelWindow.xaml;Windows\GameWindow.xaml;Windows\LoginWindow.xaml;Windows\StartGameWindow.xaml;
 
 False
 

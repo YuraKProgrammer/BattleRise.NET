@@ -55,14 +55,14 @@ namespace BattleRise.DesktopClient.Windows
             {
                 text_Res.Text = "Монеты: " + _coins + " Алмазы: " + _diamonds + " Армия: 0";
             }
-            text_CastleLevel.Text = "Замок Уровень: "+_castleLevel.ToString();
+            text_CastleLevel.Text = "Замок Уровень: " + _castleLevel.ToString();
             _levelUpCost = (int)(_secLevelCost * Math.Pow(2, _castleLevel - 1));
             button_LevelUp.Content = "Улучшить за " + _levelUpCost;
         }
-        
+
         public void CastLevelUp(object sender, RoutedEventArgs e)
-        { 
-            if (_coins >= _levelUpCost && _castleLevel+1<=_maxCatleLevel)
+        {
+            if (_coins >= _levelUpCost && _castleLevel + 1 <= _maxCatleLevel)
             {
                 _coins -= _levelUpCost;
                 _castleLevel++;
@@ -70,7 +70,7 @@ namespace BattleRise.DesktopClient.Windows
             }
             else
             {
-                MessageBox.Show("Недостаточно монет","Предупреждение");
+                MessageBox.Show("Недостаточно монет", "Предупреждение");
             }
         }
 
@@ -84,6 +84,12 @@ namespace BattleRise.DesktopClient.Windows
         {
             _saveStorage.Save(new Save(DateTime.Now, _userId, new Resources(_coins, _diamonds), _army, _fightersLevels, _castleLevel));
             MessageBox.Show("Игра сохранена", "Сохранение");
+        }
+
+        public void OnChooseLevelClick(object sender, RoutedEventArgs e)
+        {
+            var window = new ChooseLevelWindow(new Save(_saveTime, _userId, new Resources(_coins, _diamonds), _army, _fightersLevels, _castleLevel)) { Owner = this };
+            window.Show();
         }
     }
 }

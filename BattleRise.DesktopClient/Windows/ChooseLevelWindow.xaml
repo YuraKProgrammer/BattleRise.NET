@@ -1,0 +1,19 @@
+﻿<Window x:Class="BattleRise.DesktopClient.Windows.ChooseLevelWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BattleRise.DesktopClient.Windows"
+        mc:Ignorable="d"
+        Title="Выбор уровня" Height="300" Width="450" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBlock Text="" x:Name="text_name" Height="30" FontSize="20" Margin="0,42,0,212"/>
+        <TextBlock Text="" x:Name="text_army" Height="30" FontSize="20" Margin="0,7,0,247"/>
+        <TextBlock Text="" x:Name="text_countOfFighters" Height="30" FontSize="20" Margin="0,112,0,142"/>
+        <TextBlock Text="" x:Name="text_reward" Height="30" FontSize="20" Margin="0,77,0,177"/>
+        <Button Content="В бой" Height="30" Margin="0,147,0,107" Click="OnStartClick"/>
+        <Button Content="Предыдущий" Height="30" Margin="0,182,230,72" Click="OnPreviousClick"/>
+        <Button Content="Следующий" Height="30" Margin="230,182,0,72" Click="OnNextClick"/>
+        <Button Content="Выход" Height="30" Margin="0,254,0,0" Click="OnExitClick"/>
+    </Grid>
+</Window>

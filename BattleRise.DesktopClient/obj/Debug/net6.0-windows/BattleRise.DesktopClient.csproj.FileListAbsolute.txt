@@ -62,3 +62,7 @@ D:\Школьные задания\Программирование\BattleRiseGi
 D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\bin\Debug\net6.0-windows\BattleRise.SaveStorage.dll
 D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\bin\Debug\net6.0-windows\BattleRise.SaveStorage.pdb
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\obj\Debug\net6.0-windows\Windows\ChooseLevelWindow.g.cs
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\obj\Debug\net6.0-windows\Windows\ChooseLevelWindow.baml
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\bin\Debug\net6.0-windows\BattleRise.LevelStorage.dll
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.DesktopClient\bin\Debug\net6.0-windows\BattleRise.LevelStorage.pdb
