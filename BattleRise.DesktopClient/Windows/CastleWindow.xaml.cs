@@ -30,6 +30,9 @@ namespace BattleRise.DesktopClient.Windows
         private IFighter _currentFighter = new Warrior(1,1,1,Side.Friend);
         private int[] _fightersLevels;
         private Army _army;
+        private const int x = 0;
+        private const int y = 0;
+        private const Side side = Side.Friend;
         public CastleWindow(Save save)
         {
             InitializeComponent();
@@ -50,21 +53,39 @@ namespace BattleRise.DesktopClient.Windows
             {
                 if (!_fighters.ContainsKey(0))
                 {
-                    _fighters.Add(0, new Warrior(_fightersLevels[0], 1, 1, Side.Friend));
+                    _fighters.Add(0, new Warrior(_fightersLevels[0], x, y, side));
                 }
                 else
                 {
                     _fighters.Remove(0);
-                    _fighters.Add(0, new Warrior(_fightersLevels[0], 1, 1, Side.Friend));
+                    _fighters.Add(0, new Warrior(_fightersLevels[0], x, y, side));
                 }
                 if (!_fighters.ContainsKey(1))
                 {
-                    _fighters.Add(1, new Archer(_fightersLevels[1], 1, 1, Side.Friend));
+                    _fighters.Add(1, new Archer(_fightersLevels[1], x, y, side));
                 }
                 else
                 {
                     _fighters.Remove(1);
-                    _fighters.Add(1, new Archer(_fightersLevels[1], 1, 1, Side.Friend));
+                    _fighters.Add(1, new Archer(_fightersLevels[1], x, y, side));
+                }
+                if (!_fighters.ContainsKey(2))
+                {
+                    _fighters.Add(2, new Zombie(_fightersLevels[2], x, y, side));
+                }
+                else
+                {
+                    _fighters.Remove(2);
+                    _fighters.Add(2, new Zombie(_fightersLevels[2], x, y, side));
+                }
+                if (!_fighters.ContainsKey(3))
+                {
+                    _fighters.Add(3, new Skeleton(_fightersLevels[3], x, y, side));
+                }
+                else
+                {
+                    _fighters.Remove(3);
+                    _fighters.Add(3, new Skeleton(_fightersLevels[3], x, y, side));
                 }
             }
         }

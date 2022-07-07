@@ -49,11 +49,11 @@ namespace BattleRise.DesktopClient.Windows
         {
             if (_army.GetFighters() != null)
             {
-                text_Res.Text = "Монеты: " + _coins + " Алмазы: " + _diamonds + " Армия: " + _army.GetFighters().Count();
+                text_Res.Text = " : " + _coins + "   : " + _diamonds + " Армия: " + _army.GetFighters().Count();
             }
             else
             {
-                text_Res.Text = "Монеты: " + _coins + " Алмазы: " + _diamonds + " Армия: 0";
+                text_Res.Text = " : " + _coins + "   : " + _diamonds + " Армия: 0";
             }
             text_CastleLevel.Text = "Замок Уровень: " + _castleLevel.ToString();
             _levelUpCost = (int)(_secLevelCost * Math.Pow(2, _castleLevel - 1));
