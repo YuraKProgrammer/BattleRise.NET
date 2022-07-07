@@ -7,6 +7,18 @@
         mc:Ignorable="d"
         Title="Сражение" Height="Auto" Width="Auto" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Canvas Width="Auto" Height="Auto" x:Name="_canvas"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem x:Name="Exit" Header="Выйти"/>
+            <MenuItem x:Name="Battle" Header="Сражение">
+                <MenuItem x:Name="Start" Header="Начать"/>
+                <MenuItem x:Name="Pause" Header="Пауза"/>
+            </MenuItem>
+        </Menu>
+        <Canvas Width="Auto" Height="Auto" x:Name="_canvas" Grid.Row="1"/>
     </Grid>
 </Window>

@@ -25,6 +25,7 @@ namespace BattleRise.DesktopClient.Windows
         private Battle _battle;
         private Army _army;
         private int _coins;
+        private int _fighterImageSize = 40;
         public BattleWindow(Save save, Level level)
         {
             InitializeComponent();
@@ -66,8 +67,8 @@ namespace BattleRise.DesktopClient.Windows
                 bitmapImage = new BitmapImage(new Uri(fighter.GetFileFolderEnemy(), UriKind.Absolute));
             }
             System.Windows.Controls.Image image = new System.Windows.Controls.Image();
-            image.Width = 30;
-            image.Height = 30;
+            image.Width = _fighterImageSize;
+            image.Height = _fighterImageSize;
             image.Source = bitmapImage;
             Canvas.SetLeft(image, fighter.GetX());
             Canvas.SetTop(image, fighter.GetY());

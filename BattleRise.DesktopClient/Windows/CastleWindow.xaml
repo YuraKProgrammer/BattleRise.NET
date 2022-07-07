@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BattleRise.DesktopClient.Windows"
         mc:Ignorable="d"
-        Title="Замок" Height="450" Width="590" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
+        Title="Замок" Height="450" Width="600" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
     <Grid>
         <Image x:Name="_image" Width="225" Height="225" Margin="4,0,361,210" Source="D:\images\1.jpg"/>
         <TextBlock x:Name="text_money" FontSize="15" Margin="237,10,10,395"/>
@@ -16,7 +16,7 @@
         <TextBlock x:Name="text_range" FontSize="15" Margin="237,180,10,225"/>
         <Button x:Name="button_buy" Width="200" Height="30" Margin="125,259,125,145" Click="OnBuyClick"/>
         <Button x:Name="button_levelUp" Width="200" Height="30" Margin="125,309,125,95" Click="OnLevelUpClick"/>
-        <Button x:Name="button_Exit" Width="200" Height="30" Margin="195,394,195,10" Click="OnExitClick" Content="Выйти"/>
+        <Button x:Name="button_Exit" Width="200" Height="30" Margin="195,352,195,52" Click="OnExitClick" Content="Выйти"/>
         <Button x:Name="button_Next" Height="30" Margin="408,352,10,52" Click="OnNextClick" Content="Следующий"/>
         <Button x:Name="button_Previous" Height="30" Margin="10,352,408,52" Click="OnPreviousClick" Content="Предыдущий"/>
     </Grid>

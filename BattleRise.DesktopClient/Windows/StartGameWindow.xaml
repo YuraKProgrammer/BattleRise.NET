@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BattleRise.DesktopClient.Windows"
         mc:Ignorable="d"
-        Title="Начать игру" Height="400" Width="300" WindowStartupLocation="CenterScreen">
+        Title="Начать игру" Height="100" Width="300" WindowStartupLocation="CenterScreen">
     <Grid>
         <Button Content="Продолжить" Height="20" Click="OnContinueClick" x:Name="button_continue"/>
-        <Button Content="Начать новую игру" Height="20" Margin="0,107,0,157" Click="OnNewClick"/>
-        <Button Content="Выйти из аккаунта" Height="20" Margin="0,157,0,107" Click="OnExitClick"/>
+        <Button Content="Начать новую игру" Height="20" Margin="0,7,0,57" Click="OnNewClick"/>
+        <Button Content="Выйти из аккаунта" Height="20" Margin="0,57,0,7" Click="OnExitClick"/>
     </Grid>
 </Window>
