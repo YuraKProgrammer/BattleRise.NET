@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleRise.Models
+namespace BattleRise.Models.Fighters
 {
     public class Warrior : IFighter
     {
@@ -21,7 +21,7 @@ namespace BattleRise.Models
         public int y { get; set; }
         public bool isAttack;
         public Side side { get; }
-        public const string fileFolder =@"D:\images\1.jpg";
+        public const string fileFolder = @"D:\images\1.jpg";
 
         public Warrior(int level, int x, int y, Side side)
         {
@@ -34,26 +34,27 @@ namespace BattleRise.Models
             range = 1;
             cost = 10;
             this.level = level;
-            this.health = health * Math.Pow(1.1, level - 1);
-            this.damage = damage * Math.Pow(1.1, level - 1);
+            health = health * Math.Pow(1.1, level - 1);
+            damage = damage * Math.Pow(1.1, level - 1);
             this.side = side;
         }
         public IFighter Active(Army army)
         {
-           if (army != null)
+            if (army != null)
             {
                 if (targetId == null)
                 {
                     SelectTarget(army);
                 }
-                if (targetId != null && targetId > 0 && army.GetById(targetId)!=null)
+                if (targetId != null && targetId > 0 && army.GetById(targetId) != null)
                 {
                     StepToTarget(army.GetById(targetId));
                     if (GetRangeToTarget(army.GetById(targetId)) <= range)
                     {
                         if (isAttack == true)
                             isAttack = false;
-                        if (isAttack == false && army.GetById(targetId).GetHealth()>0){
+                        if (isAttack == false && army.GetById(targetId).GetHealth() > 0)
+                        {
                             isAttack = true;
                             var attackedEnemy = Attack(army);
                             return attackedEnemy;
@@ -77,7 +78,7 @@ namespace BattleRise.Models
             IFighter minTarget = null;
             for (int i = 0; i < army.GetArmySize(); i++)
             {
-                if (army.GetById(i).GetSide() == Side.Enemy) 
+                if (army.GetById(i).GetSide() == Side.Enemy)
                 {
                     var enemy = army.GetById(i);
                     var range = GetRangeToTarget(enemy);
@@ -93,17 +94,17 @@ namespace BattleRise.Models
 
         public void StepToTarget(IFighter fighter)
         {
-            var angle = Math.Atan2(Math.Abs(y - fighter.GetY()),Math.Abs(x - fighter.GetX())) * (180/Math.PI);
+            var angle = Math.Atan2(Math.Abs(y - fighter.GetY()), Math.Abs(x - fighter.GetX())) * (180 / Math.PI);
             var dx = speed * Math.Cos(angle);
             var dy = speed * Math.Sin(angle);
-            x+=(int)dx;
-            y+=(int)dy;
+            x += (int)dx;
+            y += (int)dy;
         }
 
         public int GetRangeToTarget(IFighter fighter)
         {
             var enemy = fighter;
-            var range = (int)Math.Sqrt((x * x - enemy.GetX() * enemy.GetX()) + (y * y - enemy.GetY() * enemy.GetY()));
+            var range = (int)Math.Sqrt(x * x - enemy.GetX() * enemy.GetX() + (y * y - enemy.GetY() * enemy.GetY()));
             return range;
         }
 

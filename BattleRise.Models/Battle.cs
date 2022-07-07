@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BattleRise.Models.Fighters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,17 +9,17 @@ namespace BattleRise.Models
 {
     public class Battle
     {
-        private Army _fullArmy;
-        private Level _level;
-        private List<IFighter> _fighters;
-        private DeathController _deathController;
+        public Army _fullArmy { get; }
+        public Level _level { get; }
+        public List<IFighter> _fighters { get; }
+        public DeathController _deathController = new DeathController();
+        public BattleField _field;
 
-        public Battle(Level level, Army playerArmy)
+        public Battle(Level level, int wigth, int height)
         {
             _level = level;
-            _fullArmy=Army.UnitArmies(playerArmy, level._enemyArmy);
-            _fighters = _fullArmy.GetFighters();
-            _deathController = new DeathController();
+            _fullArmy = _level._enemyArmy;
+            _field = new BattleField(wigth, height);
         }
 
         public void Act()
@@ -27,7 +28,7 @@ namespace BattleRise.Models
             {
                 var attackedFighter=fighter.Active(_fullArmy);
                 _fullArmy.UpdateFighter(attackedFighter);
-                _fullArmy = _deathController.Control(_fullArmy);
+                _fullArmy.UpdateFighters(_deathController.Control(_fullArmy).GetFighters());
             }
         }
     }

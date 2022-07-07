@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleRise.Models
+namespace BattleRise.Models.Fighters
 {
     public interface IFighter
     {

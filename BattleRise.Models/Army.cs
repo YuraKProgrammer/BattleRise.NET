@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BattleRise.Models.Fighters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -81,6 +82,11 @@ namespace BattleRise.Models
             var id = fighter.GetId();
             _fighters.Remove(_fighters.Where(f => f.GetId() == fighter.GetId()).FirstOrDefault());
             _fighters.Add(fighter);
+        }
+
+        public void UpdateFighters(List<IFighter> fighters)
+        {
+            _fighters = fighters;
         }
     }
 }

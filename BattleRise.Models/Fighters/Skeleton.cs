@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleRise.Models
+namespace BattleRise.Models.Fighters
 {
     public class Skeleton : IFighter
     {
@@ -34,8 +34,8 @@ namespace BattleRise.Models
             range = 4;
             cost = 7;
             this.level = level;
-            this.health = health * Math.Pow(1.1, level - 1);
-            this.damage = damage * Math.Pow(1.1, level - 1);
+            health = health * Math.Pow(1.1, level - 1);
+            damage = damage * Math.Pow(1.1, level - 1);
             this.side = side;
         }
         public IFighter Active(Army army)
@@ -104,7 +104,7 @@ namespace BattleRise.Models
         public int GetRangeToTarget(IFighter fighter)
         {
             var enemy = fighter;
-            var range = (int)Math.Sqrt((x * x - enemy.GetX() * enemy.GetX()) + (y * y - enemy.GetY() * enemy.GetY()));
+            var range = (int)Math.Sqrt(x * x - enemy.GetX() * enemy.GetX() + (y * y - enemy.GetY() * enemy.GetY()));
             return range;
         }
 

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleRise.Models
+namespace BattleRise.Models.Fighters
 {
-    public class Zombie : IFighter
+    public class LittleGiant : IFighter
     {
         public string name { get; }
         public int id { get; set; }
@@ -21,21 +21,21 @@ namespace BattleRise.Models
         public int y { get; set; }
         public bool isAttack;
         public Side side { get; }
-        public const string fileFolder = @"D:\images\3.jpg";
+        public const string fileFolder = @"D:\images\5.jpg";
 
-        public Zombie(int level, int x, int y, Side side)
+        public LittleGiant(int level, int x, int y, Side side)
         {
             this.x = x;
             this.y = y;
-            name = "Зомби";
-            health = 5;
-            damage = 3;
-            speed = 1;
-            range = 1;
-            cost = 7;
+            name = "Великан";
+            health = 20;
+            damage = 5;
+            speed = 2;
+            range = 2;
+            cost = 20;
             this.level = level;
-            this.health = health * Math.Pow(1.1, level - 1);
-            this.damage = damage * Math.Pow(1.1, level - 1);
+            health = health * Math.Pow(1.1, level - 1);
+            damage = damage * Math.Pow(1.1, level - 1);
             this.side = side;
         }
         public IFighter Active(Army army)
@@ -104,7 +104,7 @@ namespace BattleRise.Models
         public int GetRangeToTarget(IFighter fighter)
         {
             var enemy = fighter;
-            var range = (int)Math.Sqrt((x * x - enemy.GetX() * enemy.GetX()) + (y * y - enemy.GetY() * enemy.GetY()));
+            var range = (int)Math.Sqrt(x * x - enemy.GetX() * enemy.GetX() + (y * y - enemy.GetY() * enemy.GetY()));
             return range;
         }
 
