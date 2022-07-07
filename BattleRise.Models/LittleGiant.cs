@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleRise.Models
 {
-    public class Archer : IFighter
+    public class LittleGiant : IFighter
     {
         public string name { get; }
         public int id { get; set; }
@@ -21,18 +21,18 @@ namespace BattleRise.Models
         public int y { get; set; }
         public bool isAttack;
         public Side side { get; }
-        public const string fileFolder = @"D:\images\2.jpg";
+        public const string fileFolder = @"D:\images\5.jpg";
 
-        public Archer(int level, int x, int y, Side side)
+        public LittleGiant(int level, int x, int y, Side side)
         {
             this.x = x;
             this.y = y;
-            name = "Лучник";
-            health = 10;
-            damage = 2;
+            name = "Великан";
+            health = 20;
+            damage = 5;
             speed = 2;
-            range = 5;
-            cost = 10;
+            range = 2;
+            cost = 20;
             this.level = level;
             this.health = health * Math.Pow(1.1, level - 1);
             this.damage = damage * Math.Pow(1.1, level - 1);
@@ -177,4 +177,3 @@ namespace BattleRise.Models
         }
     }
 }
-

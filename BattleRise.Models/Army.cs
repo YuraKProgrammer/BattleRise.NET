@@ -44,7 +44,15 @@ namespace BattleRise.Models
         }
         public int GetArmySize()
         {
-            return _fighters.Count;
+            if (_fighters != null)
+            {
+                return _fighters.Count;
+            }
+            else
+            {
+                _fighters=new List<IFighter>();
+                return _fighters.Count;
+            }
         }
 
         public void AddFighter(IFighter fighter)

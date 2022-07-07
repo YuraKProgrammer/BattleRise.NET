@@ -49,24 +49,31 @@ namespace BattleRise.DesktopClient.Windows
         {
             if (_army.GetFighters() != null)
             {
-                text_Res.Text = " : " + _coins + "   : " + _diamonds + " Армия: " + _army.GetFighters().Count();
+                text_Res.Text = "Монеты: " + _coins + " Алмазы: " + _diamonds + " Армия: " + _army.GetFighters().Count();
             }
             else
             {
-                text_Res.Text = " : " + _coins + "   : " + _diamonds + " Армия: 0";
+                text_Res.Text = "Монеты: " + _coins + " Алмазы: " + _diamonds + " Армия: 0";
             }
-            text_CastleLevel.Text = "Замок Уровень: " + _castleLevel.ToString();
+            text_CastleLevel.Text = "Замок " + _castleLevel.ToString()+" уровня";
             _levelUpCost = (int)(_secLevelCost * Math.Pow(2, _castleLevel - 1));
             button_LevelUp.Content = "Улучшить за " + _levelUpCost;
         }
 
         public void CastLevelUp(object sender, RoutedEventArgs e)
         {
-            if (_coins >= _levelUpCost && _castleLevel + 1 <= _maxCatleLevel)
+            if (_coins >= _levelUpCost)
             {
-                _coins -= _levelUpCost;
-                _castleLevel++;
-                Update();
+                if (_castleLevel+1 <= _maxCatleLevel)
+                {
+                    _coins -= _levelUpCost;
+                    _castleLevel++;
+                    Update();
+                }
+                else
+                {
+                    MessageBox.Show("Достигнут максимальный уровень","Предупреждение");
+                }
             }
             else
             {

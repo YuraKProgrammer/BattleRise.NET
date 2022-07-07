@@ -63,7 +63,7 @@ namespace BattleRise.DesktopClient.Windows
 
         public void OnPreviousClick(object sender, RoutedEventArgs e)
         {
-            if (_currentLevelNumber-- < 0)
+            if (_currentLevelNumber-1 < 0)
             {
                 _currentLevelNumber = _levels.Count() - 1;
             }
@@ -75,7 +75,7 @@ namespace BattleRise.DesktopClient.Windows
         }
         public void OnNextClick(object sender, RoutedEventArgs e)
         {
-            if (_currentLevelNumber++ > _levels.Count() - 1)
+            if (_currentLevelNumber+1 > _levels.Count() - 1)
             {
                 _currentLevelNumber = 0;
             }

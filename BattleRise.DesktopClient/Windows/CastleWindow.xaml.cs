@@ -87,6 +87,15 @@ namespace BattleRise.DesktopClient.Windows
                     _fighters.Remove(3);
                     _fighters.Add(3, new Skeleton(_fightersLevels[3], x, y, side));
                 }
+                if (!_fighters.ContainsKey(4))
+                {
+                    _fighters.Add(4, new LittleGiant(_fightersLevels[4], x, y, side));
+                }
+                else
+                {
+                    _fighters.Remove(4);
+                    _fighters.Add(4, new LittleGiant(_fightersLevels[4], x, y, side));
+                }
             }
         }
 
@@ -157,7 +166,7 @@ namespace BattleRise.DesktopClient.Windows
 
         public void OnNextClick(object sender, RoutedEventArgs e)
         {
-            if (_currentfighterNumber++ > _fighters.Count() - 1)
+            if (_currentfighterNumber+1 > _fighters.Count() - 1)
             {
                 _currentfighterNumber = 0;
             }
@@ -170,7 +179,7 @@ namespace BattleRise.DesktopClient.Windows
 
         public void OnPreviousClick(object sender, RoutedEventArgs e)
         {
-            if (_currentfighterNumber-- < 0)
+            if (_currentfighterNumber-1 < 0)
             {
                 _currentfighterNumber = _fighters.Count() - 1;
             }
