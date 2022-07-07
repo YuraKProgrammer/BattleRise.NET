@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="Сражение" Height="Auto" Width="Auto" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Image x:Name="image_BattleField" Height="Auto" Width="Auto" Source="D:\images\background.jpg"/>
+        <Canvas Width="Auto" Height="Auto" x:Name="_canvas"/>
     </Grid>
 </Window>

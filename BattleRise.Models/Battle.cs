@@ -11,7 +11,6 @@ namespace BattleRise.Models
     {
         public Army _fullArmy { get; }
         public Level _level { get; }
-        public List<IFighter> _fighters { get; }
         public DeathController _deathController = new DeathController();
         public BattleField _field;
 
@@ -24,7 +23,8 @@ namespace BattleRise.Models
 
         public void Act()
         {
-          foreach (var fighter in _fighters)
+            var fighters = _fullArmy.GetFighters();
+          foreach (var fighter in fighters)
             {
                 var attackedFighter=fighter.Active(_fullArmy);
                 _fullArmy.UpdateFighter(attackedFighter);

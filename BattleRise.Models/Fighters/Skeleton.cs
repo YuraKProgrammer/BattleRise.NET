@@ -22,6 +22,7 @@ namespace BattleRise.Models.Fighters
         public bool isAttack;
         public Side side { get; }
         public const string fileFolder = @"D:\images\4.jpg";
+        public const string fileFolderEnemy = @"D:\images\4.2.jpg";
 
         public Skeleton(int level, int x, int y, Side side)
         {
@@ -174,6 +175,10 @@ namespace BattleRise.Models.Fighters
         public string GetFileFolder()
         {
             return fileFolder;
+        }
+        public string GetFileFolderEnemy()
+        {
+            return fileFolderEnemy;
         }
     }
 }
