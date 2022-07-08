@@ -31,5 +31,14 @@ namespace BattleRise.Models
                 _fullArmy.UpdateFighters(_deathController.Control(_fullArmy).GetFighters());
             }
         }
+
+        public Army AddFighterToBattle(Army army, IFighter fighter)
+        {
+            var fighters = _fullArmy.GetFighters();
+            fighters.Add(fighter);
+            //army.RemoveFighter(fighter);
+            _fullArmy.UpdateFighters(fighters);
+            return army;
+        }
     }
 }

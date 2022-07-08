@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,6 +27,7 @@ namespace BattleRise.DesktopClient.Windows
         private Army _army;
         private int _coins;
         private int _fighterImageSize = 40;
+        private FighterType _selectedFighter;
         public BattleWindow(Save save, Level level)
         {
             InitializeComponent();
@@ -73,6 +75,61 @@ namespace BattleRise.DesktopClient.Windows
             Canvas.SetLeft(image, fighter.GetX());
             Canvas.SetTop(image, fighter.GetY());
             _canvas.Children.Add(image);
+        }
+
+        private void CheckSelectedFighter()
+        {
+            if (_warrior.IsPressed)
+            {
+                _selectedFighter = FighterType.Warrior;
+            }
+            if (_archer.IsPressed)
+            {
+                _selectedFighter = FighterType.Archer;
+            }
+            if (_zombie.IsPressed)
+            {
+                _selectedFighter = FighterType.Zombie;
+            }
+            if (_skeleton.IsPressed)
+            {
+                _selectedFighter = FighterType.Skeleton;
+            }
+            if (_littleGiant.IsPressed)
+            {
+                _selectedFighter = FighterType.LittleGiant;
+            }
+        }
+
+        private void SetFighterOnField(object sender, MouseButtonEventArgs e)
+        {
+            var pos = e.GetPosition(_canvas);
+            var x = (int)(pos.X - _fighterImageSize / 2);
+            var y = (int)(pos.Y - _fighterImageSize / 2);
+            IFighter currentFighter = new Warrior(1, x, y, Side.Friend);
+            CheckSelectedFighter();
+            if (_selectedFighter == FighterType.Warrior)
+            {
+                currentFighter = new Warrior(1, x, y, Side.Friend);
+            }
+            if (_selectedFighter == FighterType.Archer)
+            {
+                currentFighter = new Archer(1, x, y, Side.Friend);
+            }
+            if (_selectedFighter == FighterType.Zombie)
+            {
+                currentFighter = new Zombie(1, x, y, Side.Friend);
+            }
+            if (_selectedFighter == FighterType.Skeleton)
+            {
+                currentFighter = new Skeleton(1, x, y, Side.Friend);
+            }
+            if (_selectedFighter == FighterType.LittleGiant)
+            {
+                currentFighter = new LittleGiant(1, x, y, Side.Friend);
+            }
+            _battle.AddFighterToBattle(_army, currentFighter);
+            DrawArmy();
         }
     }
 }

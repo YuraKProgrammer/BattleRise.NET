@@ -5,12 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BattleRise.DesktopClient"
         mc:Ignorable="d"
-        Title="BattleRise Начало" Height="400" Width="300" WindowStartupLocation="CenterOwner">
+        Title="BattleRise Начало" Height="230" Width="300" WindowStartupLocation="CenterOwner">
     <Grid>
-        <TextBlock Text="Версия" Margin="0,0,100,266" x:Name="text_version"/>
-        <TextBlock Text="BattleRise" Margin="0,23,132,244"/>
-        <Button Content="Войти..." Height="20" Margin="0,45,0,219" Click="OnLoginClick"/>
-        <Button Content="Зарегистрироваться..." Height="20" Margin="0,70,0,194" Click="OnRegisterClick"/>
-        <Button Content="О программе..." Height="20" Margin="0,95,0,169" Click="OnAboutClick"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="40"/>
+            <RowDefinition Height="Auto" MinHeight="40"/>
+            <RowDefinition Height="Auto" MinHeight="40"/>
+            <RowDefinition Height="Auto" MinHeight="40"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Версия" x:Name="text_version" Grid.Row="0"/>
+        <TextBlock Text="BattleRise" Grid.Row="1" Grid.RowSpan="1"/>
+        <Button Content="Войти..." Click="OnLoginClick" Grid.Row="2" Margin="0,35,0,0" Grid.RowSpan="2" Height="35" VerticalAlignment="Top"/>
+        <Button Content="Зарегистрироваться..." Click="OnRegisterClick" Grid.Row="2" Margin="0,0,0,5"/>
+        <Button Content="О программе..." Click="OnAboutClick" Grid.Row="3" Margin="0,30,0,-24" Grid.RowSpan="2"/>
     </Grid>
 </Window>

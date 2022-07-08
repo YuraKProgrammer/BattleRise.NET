@@ -18,7 +18,14 @@
                 <MenuItem x:Name="Start" Header="Начать"/>
                 <MenuItem x:Name="Pause" Header="Пауза"/>
             </MenuItem>
+            <MenuItem Header="Временное">
+                <RadioButton Content="Солдат" x:Name="_warrior"/>
+                <RadioButton Content="Лучник" x:Name="_archer"/>
+                <RadioButton Content="Зомби" x:Name="_zombie"/>
+                <RadioButton Content="Скелет" x:Name="_skeleton"/>
+                <RadioButton Content="Великан" x:Name="_littleGiant"/>
+            </MenuItem>
         </Menu>
-        <Canvas Width="Auto" Height="Auto" x:Name="_canvas" Grid.Row="1"/>
+        <Canvas Width="Auto" Height="Auto" x:Name="_canvas" Grid.Row="1" MouseDown="SetFighterOnField"/>
     </Grid>
 </Window>
