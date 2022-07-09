@@ -97,6 +97,15 @@ namespace BattleRise.DesktopClient.Windows
                     _fighters.Remove(4);
                     _fighters.Add(4, new LittleGiant(_fightersLevels[4], x, y, side));
                 }
+                if (!_fighters.ContainsKey(5))
+                {
+                    _fighters.Add(5, new Knight(_fightersLevels[5], x, y, side));
+                }
+                else
+                {
+                    _fighters.Remove(5);
+                    _fighters.Add(5, new Knight(_fightersLevels[5], x, y, side));
+                }
             }
         }
 

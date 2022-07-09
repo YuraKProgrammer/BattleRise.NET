@@ -12,6 +12,7 @@ namespace BattleRise.Models.Fighters
         Archer,
         Zombie,
         Skeleton,
-        LittleGiant
+        LittleGiant,
+        Knight
     }
 }

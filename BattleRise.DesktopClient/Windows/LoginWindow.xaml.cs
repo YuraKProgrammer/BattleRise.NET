@@ -49,7 +49,7 @@ namespace BattleRise.DesktopClient.Windows
                 if (save == null)
                 {
                     nw = true;
-                    save = new Save(DateTime.Now, userId, new Resources(100, 0), new Army(new List<IFighter>()), new int[]{1,1,1,1,1}, 1);
+                    save = new Save(DateTime.Now, userId, new Resources(100, 0), new Army(new List<IFighter>()), new int[]{1,1,1,1,1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, 1);
                 }
                 var window = new StartGameWindow(save, nw) { Owner = this };
                 window.Show();

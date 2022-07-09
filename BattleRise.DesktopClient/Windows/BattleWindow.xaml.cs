@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -34,8 +35,7 @@ namespace BattleRise.DesktopClient.Windows
             _battle = new Battle(level, 1920, 1080);
             _army = save.army;
             _coins = save.res.coins;
-            DrawBackground();
-            DrawArmy();
+            DrawBattleField();
         }
 
         private void DrawBackground()
@@ -46,6 +46,13 @@ namespace BattleRise.DesktopClient.Windows
             Canvas.SetLeft(backgroundImage, 0);
             Canvas.SetTop(backgroundImage, 0);
             _canvas.Children.Add(backgroundImage);
+        }
+
+        private void DrawBattleField()
+        {
+            _canvas.Children.Clear();
+            DrawBackground();
+            DrawArmy();
         }
 
         private void DrawArmy()
@@ -79,23 +86,23 @@ namespace BattleRise.DesktopClient.Windows
 
         private void CheckSelectedFighter()
         {
-            if (_warrior.IsPressed)
+            if (_warrior.IsChecked == true)
             {
                 _selectedFighter = FighterType.Warrior;
             }
-            if (_archer.IsPressed)
+            if (_archer.IsChecked == true)
             {
                 _selectedFighter = FighterType.Archer;
             }
-            if (_zombie.IsPressed)
+            if (_zombie.IsChecked == true)
             {
                 _selectedFighter = FighterType.Zombie;
             }
-            if (_skeleton.IsPressed)
+            if (_skeleton.IsChecked == true)
             {
                 _selectedFighter = FighterType.Skeleton;
             }
-            if (_littleGiant.IsPressed)
+            if (_littleGiant.IsChecked == true)
             {
                 _selectedFighter = FighterType.LittleGiant;
             }
@@ -129,7 +136,7 @@ namespace BattleRise.DesktopClient.Windows
                 currentFighter = new LittleGiant(1, x, y, Side.Friend);
             }
             _battle.AddFighterToBattle(_army, currentFighter);
-            DrawArmy();
+            DrawBattleField();
         }
     }
 }
