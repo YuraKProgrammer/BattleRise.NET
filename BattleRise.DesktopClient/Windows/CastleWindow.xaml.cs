@@ -171,7 +171,7 @@ namespace BattleRise.DesktopClient.Windows
         public void OnExitClick(object sender, RoutedEventArgs e)
         {
             var window = new GameWindow(new Save(DateTime.Now, _userId, new Resources(_coins, _diamonds), _army, _fightersLevels, _castleLevel)) { Owner = this };
-            window.Show();
+            window.ShowDialog();
         }
 
         public void OnNextClick(object sender, RoutedEventArgs e)

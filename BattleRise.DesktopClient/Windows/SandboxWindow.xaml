@@ -1,0 +1,39 @@
+﻿<Window x:Class="BattleRise.DesktopClient.Windows.SandboxWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BattleRise.DesktopClient.Windows"
+        mc:Ignorable="d"
+        Title="Песочница" Height="Auto" Width="Auto" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem x:Name="Exit" Header="Выйти"/>
+            <MenuItem x:Name="Battle" Header="Сторона">
+                <MenuItem x:Name="Friend" Header="Свой"/>
+                <MenuItem x:Name="Enemy" Header="Враг"/>
+            </MenuItem>
+            <MenuItem Header="Тип">
+                <RadioButton Content="Солдат" x:Name="_warrior"/>
+                <RadioButton Content="Лучник" x:Name="_archer"/>
+                <RadioButton Content="Зомби" x:Name="_zombie"/>
+                <RadioButton Content="Скелет" x:Name="_skeleton"/>
+                <RadioButton Content="Великан" x:Name="_littleGiant"/>
+                <RadioButton Content="Рыцарь" x:Name="_knight"/>
+            </MenuItem>
+            <MenuItem Header="Уровень">
+                <TextBox x:Name="level"/>
+            </MenuItem>
+            <MenuItem Header="Сражение">
+                <MenuItem x:Name="Start" Header="Начать"/>
+                <MenuItem x:Name="Pause" Header="Пауза"/>
+            </MenuItem>
+        </Menu>
+        <Canvas Width="Auto" Height="Auto" x:Name="_canvas" Grid.Row="1"/>
+    </Grid>
+</Window>

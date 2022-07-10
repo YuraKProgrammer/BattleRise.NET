@@ -1,0 +1,12 @@
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.TempAuth\bin\Debug\net6.0\BattleRise.TempAuth.deps.json
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.TempAuth\bin\Debug\net6.0\BattleRise.TempAuth.dll
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.TempAuth\bin\Debug\net6.0\BattleRise.TempAuth.pdb
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.TempAuth\obj\Debug\net6.0\BattleRise.TempAuth.csproj.AssemblyReference.cache
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.TempAuth\obj\Debug\net6.0\BattleRise.TempAuth.GeneratedMSBuildEditorConfig.editorconfig
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.TempAuth\obj\Debug\net6.0\BattleRise.TempAuth.AssemblyInfoInputs.cache
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.TempAuth\obj\Debug\net6.0\BattleRise.TempAuth.AssemblyInfo.cs
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.TempAuth\obj\Debug\net6.0\BattleRise.TempAuth.csproj.CoreCompileInputs.cache
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.TempAuth\obj\Debug\net6.0\BattleRise.TempAuth.dll
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.TempAuth\obj\Debug\net6.0\refint\BattleRise.TempAuth.dll
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.TempAuth\obj\Debug\net6.0\BattleRise.TempAuth.pdb
+D:\Школьные задания\Программирование\BattleRiseGit\BattleRise.TempAuth\obj\Debug\net6.0\ref\BattleRise.TempAuth.dll

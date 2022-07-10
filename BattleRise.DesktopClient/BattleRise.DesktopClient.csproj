@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BattleRise.LevelStorage\BattleRise.LevelStorage.csproj" />
     <ProjectReference Include="..\BattleRise.Models\BattleRise.Models.csproj" />
+    <ProjectReference Include="..\BattleRise.TempAuth\BattleRise.TempAuth.csproj" />
     <ProjectReference Include="..\SaveStorage\BattleRise.SaveStorage.csproj" />
   </ItemGroup>
 

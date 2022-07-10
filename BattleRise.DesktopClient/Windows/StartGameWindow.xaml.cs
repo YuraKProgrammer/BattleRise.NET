@@ -39,13 +39,13 @@ namespace BattleRise.DesktopClient.Windows
         public void OnContinueClick(object sender, RoutedEventArgs e)
         {
             var window = new GameWindow(_save) {Owner=this };
-            window.Show();
+            window.ShowDialog();
         }
 
         public void OnNewClick(object sender, RoutedEventArgs e)
         {
             var window = new GameWindow(new Save(DateTime.Now, _save.userId, new Resources(100, 0), new Army(new List<IFighter>()), new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, 1)) { Owner = this };
-            window.Show();
+            window.ShowDialog();
         }
 
         private void TuneControls()

@@ -34,13 +34,13 @@ namespace BattleRise.DesktopClient
         private void OnAboutClick(object sender, RoutedEventArgs e)
         {
             var window = new AboutWindow() { Owner = this };
-            window.Show();
+            window.ShowDialog();
         }
 
         private void OnLoginClick(object sender, RoutedEventArgs e)
         {
             var window = new LoginWindow() { Owner = this };
-            window.Show();
+            window.ShowDialog();
         }
 
         private void OnRegisterClick(object sender, RoutedEventArgs e)

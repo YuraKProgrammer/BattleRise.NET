@@ -47,7 +47,7 @@ namespace BattleRise.DesktopClient.Windows
         private void Update()
         {
             text_name.Text = _levels.ToArray()[_currentLevelNumber]._name;
-            text_reward.Text = _levels.ToArray()[_currentLevelNumber]._reward+" монет";
+            text_reward.Text = "Награда: "+_levels.ToArray()[_currentLevelNumber]._reward+" монет";
             text_countOfFighters.Text = "Вражеская армия: " + _levels.ToArray()[_currentLevelNumber]._enemyArmy.GetArmySize();
         }
 
@@ -61,7 +61,7 @@ namespace BattleRise.DesktopClient.Windows
         public void OnStartClick(object sender, RoutedEventArgs e)
         {
             var window = new BattleWindow(_save, _levels.ToArray()[_currentLevelNumber]) { Owner = this };
-            window.Show();
+            window.ShowDialog();
         }
 
         public void OnPreviousClick(object sender, RoutedEventArgs e)
