@@ -31,8 +31,8 @@ namespace BattleRise.Models.Fighters
             name = "Зомби";
             health = 5;
             damage = 3;
-            speed = 1;
-            range = 1;
+            speed = 2;
+            range = 20;
             cost = 7;
             this.level = level;
             health = health * Math.Pow(1.1, level - 1);
@@ -43,7 +43,7 @@ namespace BattleRise.Models.Fighters
         {
             if (army != null)
             {
-                if (targetId == 0)
+                if (targetId == 0 || army.GetById(targetId) == null)
                 {
                     SelectTarget(army);
                 }
@@ -69,15 +69,18 @@ namespace BattleRise.Models.Fighters
 
         public void SelectTarget(Army army)
         {
-            IFighter fighter = null;
+            IFighter[] fighters = null;
             if (side == Side.Friend)
             {
-                fighter = army.GetFighters().Where(f => f.GetSide() == Side.Enemy).FirstOrDefault();
+                fighters = army.GetFighters().Where(f => f.GetSide() == Side.Enemy).ToArray();
             }
             else
             {
-                fighter = army.GetFighters().Where(f => f.GetSide() == Side.Friend).FirstOrDefault();
+                fighters = army.GetFighters().Where(f => f.GetSide() == Side.Friend).ToArray();
             }
+            Random random = new Random();
+            var n = random.Next(fighters.Length);
+            var fighter = fighters[n];
             if (fighter != null)
                 targetId = fighter.GetId();
             else
@@ -96,7 +99,7 @@ namespace BattleRise.Models.Fighters
         public int GetRangeToTarget(IFighter fighter)
         {
             var enemy = fighter;
-            var range = (int)Math.Sqrt((x * x - enemy.GetX() * enemy.GetX()) + (y * y - enemy.GetY() * enemy.GetY()));
+            var range = (int)Math.Sqrt(Math.Abs(x * x - enemy.GetX() * enemy.GetX()) + Math.Abs(y * y - enemy.GetY() * enemy.GetY()));
             return range;
         }
 

@@ -13,7 +13,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
-            <MenuItem x:Name="Exit" Header="Выйти"/>
+            <MenuItem x:Name="Exit" Header="Выйти" Click="OnExit"/>
             <MenuItem x:Name="Battle" Header="Сторона">
                 <RadioButton x:Name="Friend" Content="Свой"/>
                 <RadioButton x:Name="Enemy" Content="Враг"/>
@@ -30,7 +30,7 @@
             <TextBox x:Name="level"/>
             <MenuItem Header="Сражение">
                 <MenuItem x:Name="Start" Header="Начать" Click="StartClick"/>
-                <MenuItem x:Name="Pause" Header="Пауза"/>
+                <MenuItem x:Name="Pause" Header="Пауза" Click="PauseClick" IsEnabled="False"/>
             </MenuItem>
         </Menu>
         <Canvas Width="Auto" Height="Auto" x:Name="_canvas" Grid.Row="1" MouseDown="SetFighterOnField"/>

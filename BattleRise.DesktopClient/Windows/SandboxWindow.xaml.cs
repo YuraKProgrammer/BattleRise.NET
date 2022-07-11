@@ -28,7 +28,7 @@ namespace BattleRise.DesktopClient.Windows
         private int _selectedFighterLevel=0;
         private Side _selectedSide=Side.Friend;
         private readonly System.Timers.Timer _timer;
-        private static readonly TimeSpan TimerInterval = TimeSpan.FromMilliseconds(100); 
+        private static readonly TimeSpan TimerInterval = TimeSpan.FromMilliseconds(150); 
 
         public SandboxWindow()
         {
@@ -45,15 +45,48 @@ namespace BattleRise.DesktopClient.Windows
             {
                 _battle.Act();
                 DrawBattleField();
+                WinnerCheck();
             });
+        }
+
+        private void WinnerCheck()
+        {
+            if (_battle._fullArmy.GetFighters().Where(f => f.GetSide() == Side.Enemy) == null)
+            {
+                _timer.Stop();
+                Start.IsEnabled = false;
+                Pause.IsEnabled = false;
+                MessageBox.Show("Вы победили!", "Победа");
+            }
+            if (_battle._fullArmy.GetFighters().Where(f => f.GetSide() == Side.Friend) == null)
+            {
+                _timer.Stop();
+                Start.IsEnabled = false;
+                Pause.IsEnabled = false;
+                MessageBox.Show("Вы проиграли!", "Проигрыш");
+            }
         }
 
         private void StartClick(object sender, EventArgs e)
         {
             _timer.Start();
+            Start.IsEnabled = false;
+            Pause.IsEnabled = true;
         }
 
-        private void DrawBackground()
+        private void PauseClick(object sender, EventArgs e)
+        {
+            _timer.Stop();
+            Pause.IsEnabled = false;
+            Start.IsEnabled = true;
+        }
+
+        private void OnExit(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+            private void DrawBackground()
         {
             BitmapImage bitmapImage = new BitmapImage(new Uri(@"D:\images\background.jpg", UriKind.Absolute));
             System.Windows.Controls.Image backgroundImage = new System.Windows.Controls.Image();
