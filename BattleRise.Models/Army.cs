@@ -58,7 +58,7 @@ namespace BattleRise.Models
 
         public void AddFighter(IFighter fighter)
         {
-            if (GetFighters() == null)
+            if (_fighters == null)
             {
                 _fighters = new List<IFighter>();
             }
@@ -80,7 +80,7 @@ namespace BattleRise.Models
         public void UpdateFighter(IFighter fighter)
         {
             var id = fighter.GetId();
-            _fighters.Remove(_fighters.Where(f => f.GetId() == fighter.GetId()).FirstOrDefault());
+            _fighters.Remove(_fighters.Where(f => f.GetId() == id).FirstOrDefault());
             _fighters.Add(fighter);
         }
 

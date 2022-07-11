@@ -52,18 +52,12 @@ namespace BattleRise.Models.Fighters
                     StepToTarget(army.GetById(targetId));
                     if (GetRangeToTarget(army.GetById(targetId)) <= range)
                     {
-                        if (isAttack == true)
-                            isAttack = false;
-                        if (isAttack == false && army.GetById(targetId).GetHealth() > 0)
-                        {
-                            isAttack = true;
                             var attackedEnemy = Attack(army);
                             return attackedEnemy;
-                        }
                     }
                 }
             }
-            return null;
+            return army.GetById(targetId);
         }
 
         public IFighter Attack(Army army)
@@ -75,33 +69,24 @@ namespace BattleRise.Models.Fighters
 
         public void SelectTarget(Army army)
         {
-            var min = 1000000;
-            IFighter minTarget = null;
-            for (int i = 1; i <= army.GetArmySize(); i++)
+            IFighter fighter = null;
+            if (side == Side.Friend)
             {
-                if (army.GetById(i) != null)
-                {
-                    if (army.GetById(i).GetSide() == Side.Enemy)
-                    {
-                        var enemy = army.GetById(i);
-                        var range = GetRangeToTarget(enemy);
-                        if (range < min)
-                        {
-                            min = range;
-                            minTarget = enemy;
-                        }
-                    }
-                }
+                fighter = army.GetFighters().Where(f => f.GetSide() == Side.Enemy).FirstOrDefault();
             }
-            if (minTarget != null)
-                targetId = minTarget.GetId();
+            else
+            {
+                fighter = army.GetFighters().Where(f => f.GetSide() == Side.Friend).FirstOrDefault();
+            }
+            if (fighter != null)
+                targetId = fighter.GetId();
             else
                 targetId = 0;
         }
 
         public void StepToTarget(IFighter fighter)
         {
-            var angle = Math.Atan2(Math.Abs(y - fighter.GetY()), Math.Abs(x - fighter.GetX())) * (180 / Math.PI);
+            var angle = Math.Atan2(y - fighter.GetY(), x - fighter.GetX()) * (180 / Math.PI);
             var dx = speed * Math.Cos(angle);
             var dy = speed * Math.Sin(angle);
             x += (int)dx;
@@ -111,7 +96,7 @@ namespace BattleRise.Models.Fighters
         public int GetRangeToTarget(IFighter fighter)
         {
             var enemy = fighter;
-            var range = (int)Math.Sqrt(x * x - enemy.GetX() * enemy.GetX() + (y * y - enemy.GetY() * enemy.GetY()));
+            var range = (int)Math.Sqrt((x * x - enemy.GetX() * enemy.GetX()) + (y * y - enemy.GetY() * enemy.GetY()));
             return range;
         }
 

@@ -28,7 +28,7 @@ namespace BattleRise.DesktopClient.Windows
         private int _selectedFighterLevel=0;
         private Side _selectedSide=Side.Friend;
         private readonly System.Timers.Timer _timer;
-        private static readonly TimeSpan TimerInterval = TimeSpan.FromSeconds(1); 
+        private static readonly TimeSpan TimerInterval = TimeSpan.FromMilliseconds(100); 
 
         public SandboxWindow()
         {
@@ -41,8 +41,11 @@ namespace BattleRise.DesktopClient.Windows
 
         private void OnTimer(object sender, ElapsedEventArgs e)
         {
-            _battle.Act();
-            DrawBattleField();
+            this.Do(() =>
+            {
+                _battle.Act();
+                DrawBattleField();
+            });
         }
 
         private void StartClick(object sender, EventArgs e)

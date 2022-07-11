@@ -11,15 +11,14 @@ namespace BattleRise.Models
         public Army Control(Army army)
         {
             var fighters = army.GetFighters();
-            foreach (var fighter in fighters)
+            for (var i=1; i<army.GetArmySize(); i++)
             {
-                if (fighter.GetHealth() <= 0)
+                if (fighters[i].GetHealth() <= 0)
                 {
-                    var id = fighter.GetId();
-                    army.RemoveFighter(id);
+                    fighters.Remove(fighters[i]);
                 }
             }
-            return army;
+            return new Army(fighters);
         }
     }
 }
