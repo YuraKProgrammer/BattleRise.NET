@@ -15,7 +15,7 @@ namespace BattleRise.Models.Fighters
         public int speed { get; }
         public int range { get; }
         public int cost { get; }
-        public int targetId;
+        public int targetId = 0;
         private int level { get; }
         public int x { get; set; }
         public int y { get; set; }
@@ -43,11 +43,11 @@ namespace BattleRise.Models.Fighters
         {
             if (army != null)
             {
-                if (targetId == null)
+                if (targetId == 0)
                 {
                     SelectTarget(army);
                 }
-                if (targetId != null && targetId > 0 && army.GetById(targetId) != null)
+                if (targetId > 0 && army.GetById(targetId) != null)
                 {
                     StepToTarget(army.GetById(targetId));
                     if (GetRangeToTarget(army.GetById(targetId)) <= range)
@@ -77,20 +77,26 @@ namespace BattleRise.Models.Fighters
         {
             var min = 1000000;
             IFighter minTarget = null;
-            for (int i = 0; i < army.GetArmySize(); i++)
+            for (int i = 1; i <= army.GetArmySize(); i++)
             {
-                if (army.GetById(i).GetSide() == Side.Enemy)
+                if (army.GetById(i) != null)
                 {
-                    var enemy = army.GetById(i);
-                    var range = GetRangeToTarget(enemy);
-                    if (range < min)
+                    if (army.GetById(i).GetSide() == Side.Enemy)
                     {
-                        min = range;
-                        minTarget = enemy;
+                        var enemy = army.GetById(i);
+                        var range = GetRangeToTarget(enemy);
+                        if (range < min)
+                        {
+                            min = range;
+                            minTarget = enemy;
+                        }
                     }
                 }
             }
-            targetId = minTarget.GetId();
+            if (minTarget != null)
+                targetId = minTarget.GetId();
+            else
+                targetId = 0;
         }
 
         public void StepToTarget(IFighter fighter)

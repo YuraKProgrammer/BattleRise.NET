@@ -13,5 +13,6 @@
         <Button Content="Войти в замок" x:Name="button_ComeIn" Height="30" Width="210" FontSize="20" Click="ComeInClick" Margin="645,413,645,301"/>
         <Button Content="Сохранить игру" x:Name="button_Save" Height="30" Width="210" FontSize="20" Click="OnSaveClick" Margin="10,704,1280,10"/>
         <Button Content="Выбрать уровень" x:Name="button_ChooseLevel" Height="30" Width="210" FontSize="20" Click="OnChooseLevelClick" Margin="1280,704,10,10"/>
+        <Button Content="Песочница" x:Name="button_Sandbox" Height="30" Width="210" FontSize="20" Click="OnSandboxClick" Margin="1280,669,10,45"/>
     </Grid>
 </Window>

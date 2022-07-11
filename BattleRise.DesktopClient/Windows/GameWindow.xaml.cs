@@ -98,5 +98,11 @@ namespace BattleRise.DesktopClient.Windows
             var window = new ChooseLevelWindow(new Save(_saveTime, _userId, new Resources(_coins, _diamonds), _army, _fightersLevels, _castleLevel)) { Owner = this };
             window.ShowDialog();
         }
+
+        public void OnSandboxClick(object sender, RoutedEventArgs e)
+        {
+            var window = new SandboxWindow();
+            window.ShowDialog();
+        }
     }
 }

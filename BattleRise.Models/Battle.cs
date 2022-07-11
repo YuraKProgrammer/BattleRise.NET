@@ -14,11 +14,19 @@ namespace BattleRise.Models
         public DeathController _deathController = new DeathController();
         public BattleField _field;
 
-        public Battle(Level level, int wigth, int height)
+        public Battle(Level level, int width, int height)
         {
             _level = level;
             _fullArmy = _level._enemyArmy;
-            _field = new BattleField(wigth, height);
+            _field = new BattleField(width, height);
+        }
+        /// <summary>
+        /// Sandbox battle
+        /// </summary>
+        public Battle(int width, int height)
+        {
+            _fullArmy = new Army(new List<IFighter>());
+            _field = new BattleField(width, height);
         }
 
         public void Act()
@@ -39,6 +47,12 @@ namespace BattleRise.Models
             //army.RemoveFighter(fighter);
             _fullArmy.UpdateFighters(fighters);
             return army;
+        }
+
+        public void EmptyAddFighterToBattle(IFighter fighter)
+        {
+            var fighters = _fullArmy.GetFighters();
+            _fullArmy.AddFighter(fighter);
         }
     }
 }
