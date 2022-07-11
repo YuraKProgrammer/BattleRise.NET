@@ -51,14 +51,14 @@ namespace BattleRise.DesktopClient.Windows
 
         private void WinnerCheck()
         {
-            if (_battle._fullArmy.GetFighters().Where(f => f.GetSide() == Side.Enemy) == null)
+            if (_battle._fullArmy.GetFighters().Where(f => f.GetSide() == Side.Enemy).Count() == 0)
             {
                 _timer.Stop();
                 Start.IsEnabled = false;
                 Pause.IsEnabled = false;
                 MessageBox.Show("Вы победили!", "Победа");
             }
-            if (_battle._fullArmy.GetFighters().Where(f => f.GetSide() == Side.Friend) == null)
+            if (_battle._fullArmy.GetFighters().Where(f => f.GetSide() == Side.Friend).Count() == 0)
             {
                 _timer.Stop();
                 Start.IsEnabled = false;

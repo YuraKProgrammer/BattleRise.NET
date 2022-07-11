@@ -49,7 +49,8 @@ namespace BattleRise.Models.Fighters
                 }
                 if (targetId > 0 && army.GetById(targetId) != null)
                 {
-                    StepToTarget(army.GetById(targetId));
+                    if (GetRangeToTarget(army.GetById(targetId)) > range)
+                        StepToTarget(army.GetById(targetId));
                     if (GetRangeToTarget(army.GetById(targetId)) <= range)
                     {
                         var attackedEnemy = Attack(army);
@@ -89,7 +90,7 @@ namespace BattleRise.Models.Fighters
 
         public void StepToTarget(IFighter fighter)
         {
-            var angle = Math.Atan2(y - fighter.GetY(), x - fighter.GetX()) * (180 / Math.PI);
+            var angle = Math.Atan2(fighter.GetY() - y, fighter.GetX() - x);
             var dx = speed * Math.Cos(angle);
             var dy = speed * Math.Sin(angle);
             x += (int)dx;
