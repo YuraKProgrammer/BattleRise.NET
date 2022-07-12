@@ -14,6 +14,9 @@ namespace BattleRise.Models.Fighters
         Skeleton,
         LittleGiant,
         Knight,
-        Goblin
+        Goblin,
+        Orc,
+        Troll,
+        Magician
     }
 }

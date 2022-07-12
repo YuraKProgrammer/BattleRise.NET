@@ -28,7 +28,7 @@
             </MenuItem>
         </Menu>
         <Canvas Width="Auto" Height="Auto" x:Name="_canvas" Grid.Row="1" MouseDown="SetFighterOnField"/>
-        <ListBox x:Name="_listBox" Grid.Row="2" Height="40">
+        <ListBox x:Name="_listBox" Grid.Row="2" Height="50">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Button/>

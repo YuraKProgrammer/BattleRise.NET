@@ -178,6 +178,18 @@ namespace BattleRise.DesktopClient.Windows
             {
                 _selectedFighter = FighterType.Goblin;
             }
+            if (_orc.IsChecked == true)
+            {
+                _selectedFighter = FighterType.Orc;
+            }
+            if (_troll.IsChecked == true)
+            {
+                _selectedFighter = FighterType.Troll;
+            }
+            if (_magician.IsChecked == true)
+            {
+                _selectedFighter = FighterType.Magician;
+            }
             if (Friend.IsChecked == true)
             {
                 _selectedSide = Side.Friend;
@@ -228,6 +240,18 @@ namespace BattleRise.DesktopClient.Windows
             if (_selectedFighter == FighterType.Goblin)
             {
                 currentFighter = new Goblin(_selectedFighterLevel, x, y, _selectedSide);
+            }
+            if (_selectedFighter == FighterType.Orc)
+            {
+                currentFighter = new Orc(_selectedFighterLevel, x, y, _selectedSide);
+            }
+            if (_selectedFighter == FighterType.Troll)
+            {
+                currentFighter = new Troll(_selectedFighterLevel, x, y, _selectedSide);
+            }
+            if (_selectedFighter == FighterType.Magician)
+            {
+                currentFighter = new Magician(_selectedFighterLevel, x, y, _selectedSide);
             }
             _battle.EmptyAddFighterToBattle(currentFighter);
             DrawBattleField();
