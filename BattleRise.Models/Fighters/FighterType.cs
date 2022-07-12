@@ -13,6 +13,7 @@ namespace BattleRise.Models.Fighters
         Zombie,
         Skeleton,
         LittleGiant,
-        Knight
+        Knight,
+        Goblin
     }
 }

@@ -106,6 +106,15 @@ namespace BattleRise.DesktopClient.Windows
                     _fighters.Remove(5);
                     _fighters.Add(5, new Knight(_fightersLevels[5], x, y, side));
                 }
+                if (!_fighters.ContainsKey(6))
+                {
+                    _fighters.Add(6, new Goblin(_fightersLevels[6], x, y, side));
+                }
+                else
+                {
+                    _fighters.Remove(6);
+                    _fighters.Add(6, new Goblin(_fightersLevels[6], x, y, side));
+                }
             }
         }
 

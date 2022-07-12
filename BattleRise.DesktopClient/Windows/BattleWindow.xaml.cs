@@ -8,6 +8,7 @@ using System.Media;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,6 +17,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BattleRise.DesktopClient.UserControls;
 
 namespace BattleRise.DesktopClient.Windows
 {
@@ -29,6 +31,8 @@ namespace BattleRise.DesktopClient.Windows
         private int _coins;
         private int _fighterImageSize = 40;
         private FighterType _selectedFighter;
+        private readonly System.Timers.Timer _timer;
+        private static readonly TimeSpan TimerInterval = TimeSpan.FromMilliseconds(150);
         public BattleWindow(Save save, Level level)
         {
             InitializeComponent();
@@ -36,6 +40,71 @@ namespace BattleRise.DesktopClient.Windows
             _army = save.army;
             _coins = save.res.coins;
             DrawBattleField();
+            _timer = new System.Timers.Timer() { Interval = TimerInterval.TotalMilliseconds, AutoReset = true };
+            _timer.Elapsed += OnTimer;
+        }
+
+        private void OnTimer(object sender, ElapsedEventArgs e)
+        {
+            this.Do(() =>
+            {
+                _battle.Act();
+                DrawBattleField();
+                WinnerCheck();
+            });
+        }
+
+        private void WinnerCheck()
+        {
+            if (_battle._fullArmy.GetFighters().Count() == 0)
+            {
+                _timer.Stop();
+                Start.IsEnabled = false;
+                Pause.IsEnabled = false;
+                MessageBox.Show("Ничья!", "Ничья");
+                Task.Delay(2000);
+                this.Close();
+            }
+            else
+            {
+                if (_battle._fullArmy.GetFighters().Where(f => f.GetSide() == Side.Enemy).Count() == 0)
+                {
+                    _timer.Stop();
+                    Start.IsEnabled = false;
+                    Pause.IsEnabled = false;
+                    MessageBox.Show("Вы победили!", "Победа");
+                    Task.Delay(2000);
+                    this.Close();
+                }
+                if (_battle._fullArmy.GetFighters().Where(f => f.GetSide() == Side.Friend).Count() == 0)
+                {
+                    _timer.Stop();
+                    Start.IsEnabled = false;
+                    Pause.IsEnabled = false;
+                    MessageBox.Show("Вы проиграли!", "Проигрыш");
+                    Task.Delay(2000);
+                    this.Close();
+                }
+            }
+        }
+
+        private void StartClick(object sender, EventArgs e)
+        {
+            _timer.Start();
+            Start.IsEnabled = false;
+            Pause.IsEnabled = true;
+        }
+
+        private void PauseClick(object sender, EventArgs e)
+        {
+            _timer.Stop();
+            Pause.IsEnabled = false;
+            Start.IsEnabled = true;
+        }
+
+        private void OnExit(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void DrawBackground()
@@ -84,57 +153,12 @@ namespace BattleRise.DesktopClient.Windows
             _canvas.Children.Add(image);
         }
 
-        private void CheckSelectedFighter()
-        {
-            if (_warrior.IsChecked == true)
-            {
-                _selectedFighter = FighterType.Warrior;
-            }
-            if (_archer.IsChecked == true)
-            {
-                _selectedFighter = FighterType.Archer;
-            }
-            if (_zombie.IsChecked == true)
-            {
-                _selectedFighter = FighterType.Zombie;
-            }
-            if (_skeleton.IsChecked == true)
-            {
-                _selectedFighter = FighterType.Skeleton;
-            }
-            if (_littleGiant.IsChecked == true)
-            {
-                _selectedFighter = FighterType.LittleGiant;
-            }
-        }
-
         private void SetFighterOnField(object sender, MouseButtonEventArgs e)
         {
             var pos = e.GetPosition(_canvas);
             var x = (int)(pos.X - _fighterImageSize / 2);
             var y = (int)(pos.Y - _fighterImageSize / 2);
-            IFighter currentFighter = new Warrior(1, x, y, Side.Friend);
-            CheckSelectedFighter();
-            if (_selectedFighter == FighterType.Warrior)
-            {
-                currentFighter = new Warrior(1, x, y, Side.Friend);
-            }
-            if (_selectedFighter == FighterType.Archer)
-            {
-                currentFighter = new Archer(1, x, y, Side.Friend);
-            }
-            if (_selectedFighter == FighterType.Zombie)
-            {
-                currentFighter = new Zombie(1, x, y, Side.Friend);
-            }
-            if (_selectedFighter == FighterType.Skeleton)
-            {
-                currentFighter = new Skeleton(1, x, y, Side.Friend);
-            }
-            if (_selectedFighter == FighterType.LittleGiant)
-            {
-                currentFighter = new LittleGiant(1, x, y, Side.Friend);
-            }
+            IFighter currentFighter = null;
             _battle.AddFighterToBattle(_army, currentFighter);
             DrawBattleField();
         }

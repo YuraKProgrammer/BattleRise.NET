@@ -25,6 +25,7 @@
                 <RadioButton Content="Скелет" x:Name="_skeleton"/>
                 <RadioButton Content="Великан" x:Name="_littleGiant"/>
                 <RadioButton Content="Рыцарь" x:Name="_knight"/>
+                <RadioButton Content="Гоблин" x:Name="_goblin"/>
             </MenuItem>
             <TextBlock Text="Уровень:"/>
             <TextBox x:Name="level"/>

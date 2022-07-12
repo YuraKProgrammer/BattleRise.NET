@@ -51,19 +51,35 @@ namespace BattleRise.DesktopClient.Windows
 
         private void WinnerCheck()
         {
-            if (_battle._fullArmy.GetFighters().Where(f => f.GetSide() == Side.Enemy).Count() == 0)
+            if (_battle._fullArmy.GetFighters().Count() == 0)
             {
                 _timer.Stop();
                 Start.IsEnabled = false;
                 Pause.IsEnabled = false;
-                MessageBox.Show("Вы победили!", "Победа");
+                MessageBox.Show("Ничья!", "Ничья");
+                Task.Delay(2000);
+                this.Close();
             }
-            if (_battle._fullArmy.GetFighters().Where(f => f.GetSide() == Side.Friend).Count() == 0)
+            else
             {
-                _timer.Stop();
-                Start.IsEnabled = false;
-                Pause.IsEnabled = false;
-                MessageBox.Show("Вы проиграли!", "Проигрыш");
+                if (_battle._fullArmy.GetFighters().Where(f => f.GetSide() == Side.Enemy).Count() == 0)
+                {
+                    _timer.Stop();
+                    Start.IsEnabled = false;
+                    Pause.IsEnabled = false;
+                    MessageBox.Show("Вы победили!", "Победа");
+                    Task.Delay(2000);
+                    this.Close();
+                }
+                if (_battle._fullArmy.GetFighters().Where(f => f.GetSide() == Side.Friend).Count() == 0)
+                {
+                    _timer.Stop();
+                    Start.IsEnabled = false;
+                    Pause.IsEnabled = false;
+                    MessageBox.Show("Вы проиграли!", "Проигрыш");
+                    Task.Delay(2000);
+                    this.Close();
+                }
             }
         }
 
@@ -132,7 +148,7 @@ namespace BattleRise.DesktopClient.Windows
             _canvas.Children.Add(image);
         }
 
-        private void CheckSelectedFighter()
+        private void CheckSelected()
         {
             if (_warrior.IsChecked == true)
             {
@@ -158,6 +174,10 @@ namespace BattleRise.DesktopClient.Windows
             {
                 _selectedFighter = FighterType.Knight;
             }
+            if (_goblin.IsChecked == true)
+            {
+                _selectedFighter = FighterType.Goblin;
+            }
             if (Friend.IsChecked == true)
             {
                 _selectedSide = Side.Friend;
@@ -180,7 +200,7 @@ namespace BattleRise.DesktopClient.Windows
             var x = (int)(pos.X - _fighterImageSize / 2);
             var y = (int)(pos.Y - _fighterImageSize / 2);
             IFighter currentFighter = new Warrior(_selectedFighterLevel, x, y, _selectedSide);
-            CheckSelectedFighter();
+            CheckSelected();
             if (_selectedFighter == FighterType.Warrior)
             {
                 currentFighter = new Warrior(_selectedFighterLevel, x, y, _selectedSide);
@@ -204,6 +224,10 @@ namespace BattleRise.DesktopClient.Windows
             if (_selectedFighter == FighterType.Knight)
             {
                 currentFighter = new Knight(_selectedFighterLevel, x, y, _selectedSide);
+            }
+            if (_selectedFighter == FighterType.Goblin)
+            {
+                currentFighter = new Goblin(_selectedFighterLevel, x, y, _selectedSide);
             }
             _battle.EmptyAddFighterToBattle(currentFighter);
             DrawBattleField();
