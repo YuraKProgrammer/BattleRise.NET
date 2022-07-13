@@ -23,6 +23,9 @@ namespace BattleRise.Models.Fighters
         public Side side { get; }
         public const string fileFolder = @"D:\images\3.jpg";
         public const string fileFolderEnemy = @"D:\images\3.2.jpg";
+        public const Element element = Element.Life;
+
+        private ElementDamageController damageController = new ElementDamageController();
 
         public Zombie(int level, int x, int y, Side side)
         {
@@ -64,7 +67,7 @@ namespace BattleRise.Models.Fighters
         public IFighter Attack(Army army)
         {
             var enemy = army.GetById(targetId);
-            enemy.SetHealth(enemy.GetHealth() - damage);
+            enemy.SetHealth(enemy.GetHealth() - damageController.Control(this, enemy));
             return enemy;
         }
 
@@ -175,6 +178,11 @@ namespace BattleRise.Models.Fighters
         public string GetFileFolderEnemy()
         {
             return fileFolderEnemy;
+        }
+
+        public Element GetElement()
+        {
+            return element;
         }
     }
 }

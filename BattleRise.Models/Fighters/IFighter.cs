@@ -29,5 +29,6 @@ namespace BattleRise.Models.Fighters
         int GetRange();
         string GetFileFolder();
         string GetFileFolderEnemy();
+        Element GetElement();
     }
 }
