@@ -23,11 +23,16 @@ namespace BattleRise.DesktopClient.UserControls
     {
         private int count;
         public FighterButton(IFighter fighter, int count)
-        {
+        { 
             InitializeComponent();
             this.count = count;
             _image.Source=new BitmapImage(new Uri(fighter.GetFileFolder(), UriKind.Absolute));
             UpdateText();
+        }
+
+        public FighterButton()
+        {
+            InitializeComponent();
         }
 
         public void UpdateText()

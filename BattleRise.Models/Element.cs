@@ -18,10 +18,9 @@ namespace BattleRise.Models
         Strength,
         Shadow,
         Light,
-        Сreation,
+        Creation,
         Destruction,
         Recovery,
-        Random,
-        Treatment
+        Random
     }
 }

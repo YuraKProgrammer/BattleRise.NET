@@ -72,9 +72,33 @@ namespace BattleRise.DesktopClient.Windows
                 text_damage.Text = "Урон: " + _currentFighter.GetDamage();
                 text_speed.Text = "Скорость: " + _currentFighter.GetSpeed();
                 text_range.Text = "Дальность: " + _currentFighter.GetRange();
+                var element = _currentFighter.GetElement();
+                text_element.Text = "Стихия: " + GetElementName(element);
                 button_buy.Content = "Купить за " + _currentFighter.GetCost();
                 button_levelUp.Content = "Улучшить за " + _currentFighter.GetLevelUpCost();
                 DrawImage();
+            }
+        }
+
+        private string GetElementName(Element element)
+        {
+            switch (element)
+            {
+                case Element.Fire: return "Огонь";
+                case Element.Wind: return "Ветер";
+                case Element.Earth: return "Земля";
+                case Element.Water: return "Вода";
+                case Element.Life: return "Жизнь";
+                case Element.Energy: return "Энергия";
+                case Element.Metal: return "Металл";
+                case Element.Strength: return "Сила";
+                case Element.Destruction: return "Разрушение";
+                case Element.Creation: return "Создание";
+                case Element.Shadow: return "Тень";
+                case Element.Light: return "Свет";
+                case Element.Recovery: return "Восстановление";
+                case Element.Random: return "Случайность";
+                default: return "Земля";
             }
         }
 

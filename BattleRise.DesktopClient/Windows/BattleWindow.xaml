@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BattleRise.DesktopClient.Windows"
-        xmlns:controls="clr-namespace:BattleRise.DesktopClient.UserControls"
+        xmlns:userControls="clr-namespace:BattleRise.DesktopClient.UserControls"
         mc:Ignorable="d"
         Title="Сражение" Height="Auto" Width="Auto" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
     <Grid>

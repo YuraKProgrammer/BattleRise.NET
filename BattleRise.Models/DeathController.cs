@@ -11,9 +11,9 @@ namespace BattleRise.Models
         public Army Control(Army army)
         {
             var fighters = army.GetFighters();
-            for (var i=1; i<army.GetArmySize(); i++)
+            for (var i=0; i<fighters.Count(); i++)
             {
-                if (fighters[i].GetHealth() <= 0)
+                if (fighters[0].GetHealth() <= 0)
                 {
                     fighters.Remove(fighters[i]);
                 }
