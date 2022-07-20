@@ -18,6 +18,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BattleRise.DesktopClient.UserControls;
+using System.Diagnostics;
 
 namespace BattleRise.DesktopClient.Windows
 {
@@ -30,7 +31,6 @@ namespace BattleRise.DesktopClient.Windows
         private Army _army;
         private int _coins;
         private int _fighterImageSize = 40;
-        private FighterType _selectedFighter;
         private readonly System.Timers.Timer _timer;
         private static readonly TimeSpan TimerInterval = TimeSpan.FromMilliseconds(150);
         public BattleWindow(Save save, Level level)
@@ -40,8 +40,28 @@ namespace BattleRise.DesktopClient.Windows
             _army = save.army;
             _coins = save.res.coins;
             DrawBattleField();
+            ArmyToFightersPanel();
             _timer = new System.Timers.Timer() { Interval = TimerInterval.TotalMilliseconds, AutoReset = true };
             _timer.Elapsed += OnTimer;
+        }
+
+        private void ArmyToFightersPanel()
+        {
+            var fighters = _army.GetFighters();
+            foreach (var f in fighters)
+            {
+                f.GetHashCode();
+            }
+            var groups = fighters.GroupBy(f => f.GetHashCode()).ToList();
+            var fButtons = new List<FighterButton>();
+            foreach (var group in groups)
+            {
+                var fb = new FighterButton();
+                fb.Fighter = group.FirstOrDefault();
+                fb.Count = group.Count();
+                fButtons.Add(fb);
+            }
+            _fp._lb.ItemsSource = fButtons; 
         }
 
         private void OnTimer(object sender, ElapsedEventArgs e)
@@ -51,6 +71,7 @@ namespace BattleRise.DesktopClient.Windows
                 _battle.Act();
                 DrawBattleField();
                 WinnerCheck();
+                ArmyToFightersPanel();
             });
         }
 
@@ -156,10 +177,13 @@ namespace BattleRise.DesktopClient.Windows
         private void SetFighterOnField(object sender, MouseButtonEventArgs e)
         {
             var pos = e.GetPosition(_canvas);
-            var x = (int)(pos.X - _fighterImageSize / 2);
-            var y = (int)(pos.Y - _fighterImageSize / 2);
-            IFighter currentFighter = null;
-            _battle.AddFighterToBattle(_army, currentFighter);
+            var px = (int)(pos.X - _fighterImageSize / 2);
+            var py = (int)(pos.Y - _fighterImageSize / 2);
+            IFighter currentFighter = _fp.GetSelectedButton().GetFighter();
+            currentFighter.SetX(px);
+            currentFighter.SetY(py);
+            _army = _battle.AddFighterToBattle(_army, currentFighter);
+            ArmyToFightersPanel();
             DrawBattleField();
         }
     }

@@ -43,16 +43,13 @@ namespace BattleRise.Models
 
         public Army AddFighterToBattle(Army army, IFighter fighter)
         {
-            var fighters = _fullArmy.GetFighters();
-            fighters.Add(fighter);
-            //army.RemoveFighter(fighter);
-            _fullArmy.UpdateFighters(fighters);
+            _fullArmy.AddFighter(fighter);
+            army.RemoveFighter(fighter.GetId());
             return army;
         }
 
         public void EmptyAddFighterToBattle(IFighter fighter)
         {
-            var fighters = _fullArmy.GetFighters();
             _fullArmy.AddFighter(fighter);
         }
     }

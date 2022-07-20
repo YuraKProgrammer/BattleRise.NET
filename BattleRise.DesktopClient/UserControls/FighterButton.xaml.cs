@@ -21,29 +21,67 @@ namespace BattleRise.DesktopClient.UserControls
     /// </summary>
     public partial class FighterButton : UserControl
     {
-        private int count;
+        private int _count;
+        private IFighter _fighter;
+        public IFighter Fighter
+        {
+            get
+            {
+                return _fighter;
+            }
+            set
+            {
+                _fighter = value;
+                _image.Source = new BitmapImage(new Uri(_fighter.GetFileFolder(), UriKind.Absolute));
+            }
+        }
+
+        public int Count
+        { 
+            get 
+            { 
+                return _count; 
+            }
+            set
+            {
+                _count = value;
+                _text.Text = value.ToString();
+            }
+        }
         public FighterButton(IFighter fighter, int count)
         { 
             InitializeComponent();
-            this.count = count;
+            _count = count;
+            _fighter = fighter;
+            Fighter = fighter;
             _image.Source=new BitmapImage(new Uri(fighter.GetFileFolder(), UriKind.Absolute));
             UpdateText();
+        }
+
+        private void FighterButton_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            Fighter = DataContext as IFighter;
         }
 
         public FighterButton()
         {
             InitializeComponent();
+            DataContextChanged += FighterButton_DataContextChanged;
         }
 
         public void UpdateText()
         {
-            _text.Text = count.ToString();
+            _text.Text = _count.ToString();
         }
 
-        public void MinusCount()
+        public IFighter GetFighter()
         {
-            count--;
-            UpdateText();
+            return _fighter;
+        }
+
+        public int GetCount()
+        {
+            return _count;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace BattleRise.Models
             var fighters = army.GetFighters();
             for (var i=0; i<fighters.Count(); i++)
             {
-                if (fighters[0].GetHealth() <= 0)
+                if (fighters[i].GetHealth() <= 0)
                 {
                     fighters.Remove(fighters[i]);
                 }

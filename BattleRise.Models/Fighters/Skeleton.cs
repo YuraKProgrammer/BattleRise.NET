@@ -183,5 +183,15 @@ namespace BattleRise.Models.Fighters
         {
             return element;
         }
+
+        public void SetX(int x)
+        {
+            this.x = x;
+        }
+
+        public void SetY(int y)
+        {
+            this.y = y;
+        }
     }
 }

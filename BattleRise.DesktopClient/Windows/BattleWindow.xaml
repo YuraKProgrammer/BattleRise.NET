@@ -13,27 +13,17 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
         <Menu Grid.Row="0">
             <MenuItem x:Name="Exit" Header="Выйти"/>
             <MenuItem x:Name="Battle" Header="Сражение">
                 <MenuItem x:Name="Start" Header="Начать"/>
                 <MenuItem x:Name="Pause" Header="Пауза"/>
             </MenuItem>
-            <MenuItem Header="Временное">
-                <RadioButton Content="Солдат" x:Name="_warrior"/>
-                <RadioButton Content="Лучник" x:Name="_archer"/>
-                <RadioButton Content="Зомби" x:Name="_zombie"/>
-                <RadioButton Content="Скелет" x:Name="_skeleton"/>
-                <RadioButton Content="Великан" x:Name="_littleGiant"/>
-            </MenuItem>
         </Menu>
         <Canvas Width="Auto" Height="Auto" x:Name="_canvas" Grid.Row="1" MouseDown="SetFighterOnField"/>
-        <ListBox x:Name="_listBox" Grid.Row="2" Height="50">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Button/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <userControls:FightersPanel x:Name="_fp" Grid.Row="2" Grid.Column="0"/>
     </Grid>
 </Window>

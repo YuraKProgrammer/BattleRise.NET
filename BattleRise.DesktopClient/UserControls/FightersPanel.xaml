@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="BattleRise.DesktopClient.UserControls.FightersPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BattleRise.DesktopClient.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="75">
+    <ListBox x:Name="_lb" Width="75" Height="500" Visibility="Visible">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <local:FighterButton Visibility="Visible"/>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
+</UserControl>

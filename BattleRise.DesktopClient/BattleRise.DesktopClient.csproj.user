@@ -10,6 +10,9 @@
     <Compile Update="UserControls\FighterButton.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControls\FightersPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Windows\AboutWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -43,6 +46,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\FighterButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\FightersPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\AboutWindow.xaml">

@@ -18,6 +18,8 @@ namespace BattleRise.Models.Fighters
         double GetHealth();
         void SetHealth(double health);
         int GetX();
+        void SetX(int x);
+        void SetY(int y);
         int GetY();
         Side GetSide();
         int GetId();
