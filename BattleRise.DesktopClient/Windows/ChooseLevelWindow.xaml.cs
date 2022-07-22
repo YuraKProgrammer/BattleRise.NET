@@ -26,7 +26,7 @@ namespace BattleRise.DesktopClient.Windows
         private Save _save;
         private int _currentLevelNumber = 0;
         private List<Level> _levels = new List<Level>();
-        private TempLevelStorage _levelStorage = new TempLevelStorage();
+        private LevelsLoader levelsLoader = new LevelsLoader();
         public ChooseLevelWindow(Save save)
         {
             InitializeComponent();
@@ -53,9 +53,7 @@ namespace BattleRise.DesktopClient.Windows
 
         private void LoadLevels()
         {
-            _levels.Add(new Level(150, new Army(new List<IFighter>() { new Warrior(1, 500, 100, Side.Enemy) }),"1 level"));
-            _levels.Add(new Level(200, new Army(new List<IFighter>() { new Warrior(1, 500, 100, Side.Enemy), new Warrior(1, 500, 200, Side.Enemy) }),"2 level"));
-            _levels.Add(new Level(300, new Army(new List<IFighter>() { new Warrior(2, 500, 100, Side.Enemy), new Warrior(2, 500, 200, Side.Enemy) }),"3 level"));
+            _levels = levelsLoader.Load(_levels);
         }
 
         public void OnStartClick(object sender, RoutedEventArgs e)

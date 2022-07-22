@@ -30,6 +30,11 @@ namespace BattleRise.DesktopClient.Windows
         private Battle _battle;
         private Army _army;
         private int _coins;
+        private int _diamonds;
+        private int _reward;
+        private int _userId;
+        private int _castleLevel;
+        private int[] _fightersLevels;
         private int _fighterImageSize = 40;
         private readonly System.Timers.Timer _timer;
         private static readonly TimeSpan TimerInterval = TimeSpan.FromMilliseconds(150);
@@ -39,6 +44,11 @@ namespace BattleRise.DesktopClient.Windows
             _battle = new Battle(level, 1920, 1080);
             _army = save.army;
             _coins = save.res.coins;
+            _diamonds = save.res.diamonds;
+            _userId = save.userId;
+            _reward = level._reward;
+            _fightersLevels = save.fightersLevels;
+            _castleLevel = save.castleLevel;
             DrawBattleField();
             ArmyToFightersPanel();
             _timer = new System.Timers.Timer() { Interval = TimerInterval.TotalMilliseconds, AutoReset = true };
@@ -48,20 +58,11 @@ namespace BattleRise.DesktopClient.Windows
         private void ArmyToFightersPanel()
         {
             var fighters = _army.GetFighters();
-            foreach (var f in fighters)
-            {
-                f.GetHashCode();
-            }
-            var groups = fighters.GroupBy(f => f.GetHashCode()).ToList();
-            var fButtons = new List<FighterButton>();
-            foreach (var group in groups)
-            {
-                var fb = new FighterButton();
-                fb.Fighter = group.FirstOrDefault();
-                fb.Count = group.Count();
-                fButtons.Add(fb);
-            }
-            _fp._lb.ItemsSource = fButtons; 
+            var groups = fighters
+                .GroupBy(f => f.GetHashCode())
+                .Select(gr => new FightersGroup(gr.First(), gr.Count()))
+                .ToArray();
+            _fp._lb.ItemsSource = groups;
         }
 
         private void OnTimer(object sender, ElapsedEventArgs e)
@@ -94,8 +95,9 @@ namespace BattleRise.DesktopClient.Windows
                     Start.IsEnabled = false;
                     Pause.IsEnabled = false;
                     MessageBox.Show("Вы победили!", "Победа");
-                    Task.Delay(2000);
-                    this.Close();
+                    _coins = _coins + _reward;
+                    var window = new GameWindow(new Save(DateTime.Now, _userId, new Models.Resources(_coins,_diamonds), _army, _fightersLevels, _castleLevel));
+                    window.ShowDialog();
                 }
                 if (_battle._fullArmy.GetFighters().Where(f => f.GetSide() == Side.Friend).Count() == 0)
                 {
@@ -103,8 +105,8 @@ namespace BattleRise.DesktopClient.Windows
                     Start.IsEnabled = false;
                     Pause.IsEnabled = false;
                     MessageBox.Show("Вы проиграли!", "Проигрыш");
-                    Task.Delay(2000);
-                    this.Close();
+                    var window = new GameWindow(new Save(DateTime.Now, _userId, new Models.Resources(_coins, _diamonds), _army, _fightersLevels, _castleLevel));
+                    window.ShowDialog();
                 }
             }
         }
@@ -180,10 +182,7 @@ namespace BattleRise.DesktopClient.Windows
             var px = (int)(pos.X - _fighterImageSize / 2);
             var py = (int)(pos.Y - _fighterImageSize / 2);
             IFighter currentFighter = null;
-            if (_fp.GetSelectedButton().GetFighter() != null)
-            {
-                currentFighter = _fp.GetSelectedButton().GetFighter();
-            }
+            currentFighter = _fp.GetSelectedFighter();
             if (currentFighter != null)
             {
                 currentFighter.SetX(px);

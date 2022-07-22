@@ -1,4 +1,5 @@
-﻿using BattleRise.Models.Fighters;
+﻿using BattleRise.Models;
+using BattleRise.Models.Fighters;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -22,73 +23,36 @@ namespace BattleRise.DesktopClient.UserControls
     /// </summary>
     public partial class FighterButton : UserControl
     {
-        private int _count;
-        private IFighter _fighter;
-        public IFighter Fighter
+        private FightersGroup _fightersGroup;
+        public FightersGroup FightersGroup
         {
             get
             {
-                return _fighter;
+                return _fightersGroup;
             }
             set
             {
-                _fighter = value;
-                if (_fighter != null)
-                {
-                    var folder = value.GetFileFolder();
-                    var uri = new Uri(folder, UriKind.Absolute);
-                    var bm = new BitmapImage(uri);
-                    _image.Source = bm;
-                }
+                _fightersGroup = value;
+                _image.Source = new BitmapImage(new Uri(_fightersGroup.fighter.GetFileFolder(), UriKind.Absolute));
+                _text.Text = _fightersGroup.count.ToString();
             }
         }
-
-        public int Count
-        { 
-            get 
-            { 
-                return _count; 
-            }
-            set
-            {
-                _count = value;
-                _text.Text = value.ToString();
-            }
-        }
-        public FighterButton(IFighter fighter, int count)
+        public FighterButton(FightersGroup fightersGroup)
         { 
             InitializeComponent();
-            _count = count;
-            _fighter = fighter;
-            Fighter = fighter;
-            _image.Source=new BitmapImage(new Uri(fighter.GetFileFolder(), UriKind.Absolute));
-            UpdateText();
+            _fightersGroup = fightersGroup;
+            _image.Source=new BitmapImage(new Uri(fightersGroup.fighter.GetFileFolder(), UriKind.Absolute));
         }
 
         private void FighterButton_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            Fighter = DataContext as IFighter;
+            FightersGroup = DataContext as FightersGroup; 
         }
 
         public FighterButton()
         {
             InitializeComponent();
             DataContextChanged += FighterButton_DataContextChanged;
-        }
-
-        public void UpdateText()
-        {
-            _text.Text = _count.ToString();
-        }
-
-        public IFighter GetFighter()
-        {
-            return _fighter;
-        }
-
-        public int GetCount()
-        {
-            return _count;
         }
     }
 }

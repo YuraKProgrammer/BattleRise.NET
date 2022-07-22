@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BattleRise.Models;
+using BattleRise.Models.Fighters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,10 +27,11 @@ namespace BattleRise.DesktopClient.UserControls
             InitializeComponent();
         }
 
-        public FighterButton GetSelectedButton()
+        public IFighter GetSelectedFighter()
         {
-            if (_lb.SelectedItem != null)
-                return _lb.SelectedItem as FighterButton;
+            var fg = _lb.SelectedItem as FightersGroup;
+            if (fg != null)
+                return fg.fighter;
             else
                 return null;
         }
