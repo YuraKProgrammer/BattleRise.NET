@@ -63,6 +63,7 @@ namespace BattleRise.Models
                 _fighters = new List<IFighter>();
             }
             fighter.SetId(lastId+1);
+            lastId=lastId+1;
             _fighters.Add(fighter);
         }
 

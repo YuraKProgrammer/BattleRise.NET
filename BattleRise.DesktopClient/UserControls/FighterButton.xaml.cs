@@ -1,6 +1,7 @@
 ﻿using BattleRise.Models.Fighters;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +33,13 @@ namespace BattleRise.DesktopClient.UserControls
             set
             {
                 _fighter = value;
-                _image.Source = new BitmapImage(new Uri(_fighter.GetFileFolder(), UriKind.Absolute));
+                if (_fighter != null)
+                {
+                    var folder = value.GetFileFolder();
+                    var uri = new Uri(folder, UriKind.Absolute);
+                    var bm = new BitmapImage(uri);
+                    _image.Source = bm;
+                }
             }
         }
 

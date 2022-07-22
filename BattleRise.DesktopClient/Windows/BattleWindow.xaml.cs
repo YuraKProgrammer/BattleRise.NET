@@ -179,10 +179,17 @@ namespace BattleRise.DesktopClient.Windows
             var pos = e.GetPosition(_canvas);
             var px = (int)(pos.X - _fighterImageSize / 2);
             var py = (int)(pos.Y - _fighterImageSize / 2);
-            IFighter currentFighter = _fp.GetSelectedButton().GetFighter();
-            currentFighter.SetX(px);
-            currentFighter.SetY(py);
-            _army = _battle.AddFighterToBattle(_army, currentFighter);
+            IFighter currentFighter = null;
+            if (_fp.GetSelectedButton().GetFighter() != null)
+            {
+                currentFighter = _fp.GetSelectedButton().GetFighter();
+            }
+            if (currentFighter != null)
+            {
+                currentFighter.SetX(px);
+                currentFighter.SetY(py);
+                _army = _battle.AddFighterToBattle(_army, currentFighter);
+            }
             ArmyToFightersPanel();
             DrawBattleField();
         }

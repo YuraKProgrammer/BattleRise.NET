@@ -32,7 +32,7 @@ namespace BattleRise.Models
         public void Act()
         {
             var fighters = _fullArmy.GetFighters();
-            for (var i=1; i<fighters.Count(); i++)
+            for (var i=0; i<fighters.Count(); i++)
             {
                 var fighter = fighters[i];
                 var attackedFighter = fighter.Active(_fullArmy);

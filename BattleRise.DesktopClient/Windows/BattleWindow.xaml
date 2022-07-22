@@ -17,10 +17,10 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Menu Grid.Row="0">
-            <MenuItem x:Name="Exit" Header="Выйти"/>
+            <MenuItem x:Name="Exit" Header="Выйти" Click="OnExit"/>
             <MenuItem x:Name="Battle" Header="Сражение">
-                <MenuItem x:Name="Start" Header="Начать"/>
-                <MenuItem x:Name="Pause" Header="Пауза"/>
+                <MenuItem x:Name="Start" Header="Начать" Click="StartClick"/>
+                <MenuItem x:Name="Pause" Header="Пауза" Click="PauseClick"/>
             </MenuItem>
         </Menu>
         <Canvas Width="Auto" Height="Auto" x:Name="_canvas" Grid.Row="1" MouseDown="SetFighterOnField"/>

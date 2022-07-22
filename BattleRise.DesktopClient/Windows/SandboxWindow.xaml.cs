@@ -207,7 +207,7 @@ namespace BattleRise.DesktopClient.Windows
         }
 
         private void SetFighterOnField(object sender, MouseButtonEventArgs e)
-        {
+        { 
             var pos = e.GetPosition(_canvas);
             var x = (int)(pos.X - _fighterImageSize / 2);
             var y = (int)(pos.Y - _fighterImageSize / 2);
