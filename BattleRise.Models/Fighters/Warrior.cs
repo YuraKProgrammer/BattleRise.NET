@@ -19,7 +19,6 @@ namespace BattleRise.Models.Fighters
         private int level { get; }
         public int x { get; set; }
         public int y { get; set; }
-        public bool isAttack;
         public Side side { get; }
         public const string fileFolder = @"D:\images\1.jpg";
         public const string fileFolderEnemy = @"D:\images\1.2.jpg";

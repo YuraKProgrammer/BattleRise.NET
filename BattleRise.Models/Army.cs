@@ -18,26 +18,6 @@ namespace BattleRise.Models
                 lastId=fighters.Count;
         }
 
-        public static Army UnitArmies(Army army1, Army army2)
-        {
-            var f1 = army1.GetFighters();
-            var f2 = army2.GetFighters();
-            var f3 = new List<IFighter>();
-            for (int i = 1; i <= f1.Count; i++)
-            {
-                var f = f1[i-1];
-                f.SetId(i);
-                f3.Add(f);
-            }
-            for (int j = f1.Count+1; j <= f2.Count; j++)
-            {
-                var f = f2[j - f1.Count()-1];
-                f.SetId(j);
-                f3.Add(f);
-            }
-            return new Army(f3);
-        }
-
         private List<IFighter> _fighters;
         public IFighter GetById(int id)
         {
