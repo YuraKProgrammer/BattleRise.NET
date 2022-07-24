@@ -132,7 +132,7 @@ namespace BattleRise.DesktopClient.Windows
 
         private void DrawBackground()
         {
-            BitmapImage bitmapImage = new BitmapImage(new Uri(@"D:\images\background.jpg", UriKind.Absolute));
+            BitmapImage bitmapImage = new BitmapImage(new Uri(@"/BattleRise.DesktopClient;component/images/background.jpg", UriKind.RelativeOrAbsolute));
             System.Windows.Controls.Image backgroundImage = new System.Windows.Controls.Image();
             backgroundImage.Source = bitmapImage;
             Canvas.SetLeft(backgroundImage, 0);
@@ -161,11 +161,11 @@ namespace BattleRise.DesktopClient.Windows
             var bitmapImage = new BitmapImage();
             if (fighter.GetSide() == Side.Friend)
             {
-                bitmapImage = new BitmapImage(new Uri(fighter.GetFileFolder(), UriKind.Absolute));
+                bitmapImage = new BitmapImage(fighter.GetFileFolder());
             }
             else
             {
-                bitmapImage = new BitmapImage(new Uri(fighter.GetFileFolderEnemy(), UriKind.Absolute));
+                bitmapImage = new BitmapImage(fighter.GetFileFolderEnemy());
             }
             System.Windows.Controls.Image image = new System.Windows.Controls.Image();
             image.Width = _fighterImageSize;

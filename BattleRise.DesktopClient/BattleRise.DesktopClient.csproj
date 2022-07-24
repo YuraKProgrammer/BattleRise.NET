@@ -8,6 +8,35 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="images\1.2.jpg" />
+    <None Remove="images\1.jpg" />
+    <None Remove="images\10.2.jpg" />
+    <None Remove="images\10.jpg" />
+    <None Remove="images\2.2.jpg" />
+    <None Remove="images\2.jpg" />
+    <None Remove="images\3.2.jpg" />
+    <None Remove="images\3.jpg" />
+    <None Remove="images\4.2.jpg" />
+    <None Remove="images\4.jpg" />
+    <None Remove="images\5.2.jpg" />
+    <None Remove="images\5.jpg" />
+    <None Remove="images\6.2.jpg" />
+    <None Remove="images\6.jpg" />
+    <None Remove="images\7.2.jpg" />
+    <None Remove="images\7.jpg" />
+    <None Remove="images\8.2.jpg" />
+    <None Remove="images\8.jpg" />
+    <None Remove="images\9.2.jpg" />
+    <None Remove="images\9.jpg" />
+    <None Remove="images\background.jpg" />
+    <None Remove="images\main.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\5.2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Kalantyr.Auth.Client" Version="1.0.2" />
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
   </ItemGroup>
@@ -32,6 +61,30 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\1.2.jpg" />
+    <Resource Include="images\1.jpg" />
+    <Resource Include="images\10.2.jpg" />
+    <Resource Include="images\10.jpg" />
+    <Resource Include="images\2.2.jpg" />
+    <Resource Include="images\2.jpg" />
+    <Resource Include="images\3.2.jpg" />
+    <Resource Include="images\3.jpg" />
+    <Resource Include="images\4.2.jpg" />
+    <Resource Include="images\4.jpg" />
+    <Resource Include="images\5.jpg" />
+    <Resource Include="images\6.2.jpg" />
+    <Resource Include="images\6.jpg" />
+    <Resource Include="images\7.2.jpg" />
+    <Resource Include="images\7.jpg" />
+    <Resource Include="images\8.2.jpg" />
+    <Resource Include="images\8.jpg" />
+    <Resource Include="images\9.2.jpg" />
+    <Resource Include="images\9.jpg" />
+    <Resource Include="images\background.jpg" />
+    <Resource Include="images\main.jpg" />
   </ItemGroup>
 
 </Project>

@@ -33,7 +33,7 @@ namespace BattleRise.DesktopClient.UserControls
             set
             {
                 _fightersGroup = value;
-                _image.Source = new BitmapImage(new Uri(_fightersGroup.fighter.GetFileFolder(), UriKind.Absolute));
+                _image.Source = new BitmapImage(_fightersGroup.fighter.GetFileFolder());
                 _text.Text = _fightersGroup.count.ToString();
             }
         }
@@ -41,7 +41,7 @@ namespace BattleRise.DesktopClient.UserControls
         { 
             InitializeComponent();
             _fightersGroup = fightersGroup;
-            _image.Source=new BitmapImage(new Uri(fightersGroup.fighter.GetFileFolder(), UriKind.Absolute));
+            _image.Source=new BitmapImage(fightersGroup.fighter.GetFileFolder());
         }
 
         private void FighterButton_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)

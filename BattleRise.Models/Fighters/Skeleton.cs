@@ -21,8 +21,8 @@ namespace BattleRise.Models.Fighters
         public int y { get; set; }
         public bool isAttack;
         public Side side { get; }
-        public const string fileFolder = @"D:\images\4.jpg";
-        public const string fileFolderEnemy = @"D:\images\4.2.jpg";
+        public const string fileFolder = @"/BattleRise.DesktopClient;component/images/4.jpg";
+        public const string fileFolderEnemy = @"/BattleRise.DesktopClient;component/images/4.2.jpg";
         public const Element element = Element.Life;
 
         private ElementDamageController damageController = new ElementDamageController();
@@ -170,13 +170,14 @@ namespace BattleRise.Models.Fighters
             return range;
         }
 
-        public string GetFileFolder()
+        public Uri GetFileFolder()
         {
-            return fileFolder;
+            return new Uri(fileFolder, UriKind.RelativeOrAbsolute);
         }
-        public string GetFileFolderEnemy()
+
+        public Uri GetFileFolderEnemy()
         {
-            return fileFolderEnemy;
+            return new Uri(fileFolderEnemy, UriKind.RelativeOrAbsolute);
         }
 
         public Element GetElement()

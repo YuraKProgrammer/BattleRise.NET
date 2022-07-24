@@ -104,8 +104,7 @@ namespace BattleRise.DesktopClient.Windows
 
         private void DrawImage()
         {
-            string fileFolder = _currentFighter.GetFileFolder();
-            _image.Source = new BitmapImage(new Uri(fileFolder, UriKind.Absolute));
+            _image.Source = new BitmapImage(_currentFighter.GetFileFolder());
         }
 
         public void OnBuyClick(object sender, RoutedEventArgs e)
