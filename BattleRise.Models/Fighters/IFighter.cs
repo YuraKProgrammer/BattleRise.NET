@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleRise.Models.Fighters
 {
-    public interface IFighter
+    public interface IFighter : IHasPosition
     {
         IFighter Active(Army army);
         void SelectTarget(Army army);
@@ -22,9 +22,7 @@ namespace BattleRise.Models.Fighters
         void SetY(int y);
         int GetY();
         Side GetSide();
-        int GetId();
         string GetName();
-        void SetId(int id);
         int GetLevel();
         double GetDamage();
         int GetSpeed();
@@ -32,5 +30,7 @@ namespace BattleRise.Models.Fighters
         Uri GetFileFolder();
         Uri GetFileFolderEnemy();
         Element GetElement();
+
+        int Id { get; set;  }
     }
 }

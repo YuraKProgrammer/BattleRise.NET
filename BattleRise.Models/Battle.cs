@@ -44,7 +44,7 @@ namespace BattleRise.Models
         public Army AddFighterToBattle(Army army, IFighter fighter)
         {
             _fullArmy.AddFighter(fighter);
-            army.RemoveFighter(fighter.GetId());
+            army.RemoveFighter(fighter.Id);
             return army;
         }
 

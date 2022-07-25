@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace BattleRise.Models.Fighters
 {
-    public class Zombie : IFighter
+    public class Zombie : FighterBase, IFighter, IHasPosition
     {
         public string name { get; }
-        public int id { get; set; }
         public double health { get; set; }
         public double damage { get; }
         public int speed { get; }
@@ -86,7 +85,7 @@ namespace BattleRise.Models.Fighters
             var n = random.Next(fighters.Length);
             var fighter = fighters[n];
             if (fighter != null)
-                targetId = fighter.GetId();
+                targetId = fighter.Id;
             else
                 targetId = 0;
         }
@@ -135,16 +134,6 @@ namespace BattleRise.Models.Fighters
         {
             return side;
         }
-        public int GetId()
-        {
-            return id;
-        }
-
-        public void SetId(int id)
-        {
-            this.id = id;
-        }
-
         public string GetName()
         {
             return name;

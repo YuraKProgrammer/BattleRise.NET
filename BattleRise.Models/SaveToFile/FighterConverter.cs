@@ -11,12 +11,12 @@ namespace BattleRise.Models.SaveToFile
     {
         public static SFighter ToSFighter(IFighter fighter)
         {
-            throw new Exception("Не реализовано");
+            throw new NotImplementedException();
         }
 
         public static IFighter ToIFighter(SFighter sFighter)
         {
-            throw new Exception("Не раелизовано");
+            throw new NotImplementedException();
         }
     }
 }

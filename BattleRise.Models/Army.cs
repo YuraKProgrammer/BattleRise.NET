@@ -13,43 +13,32 @@ namespace BattleRise.Models
 
         public Army(List<IFighter> fighters)
         {
-            _fighters= fighters;
+            if (_fighters!=null && fighters!=null)
+                _fighters.AddRange(fighters);
             if (fighters!=null)
                 lastId=fighters.Count;
         }
 
-        private List<IFighter> _fighters;
+        private List<IFighter> _fighters = new List<IFighter>();
         public IFighter GetById(int id)
         {
-            return _fighters.Where(f => f.GetId() == id).FirstOrDefault();
+            return _fighters.Where(f => f.Id == id).FirstOrDefault();
         }
         public int GetArmySize()
         {
-            if (_fighters != null)
-            {
                 return _fighters.Count;
-            }
-            else
-            {
-                _fighters=new List<IFighter>();
-                return _fighters.Count;
-            }
         }
 
         public void AddFighter(IFighter fighter)
         {
-            if (_fighters == null)
-            {
-                _fighters = new List<IFighter>();
-            }
-            fighter.SetId(lastId+1);
+            fighter.Id = lastId+1;
             lastId=lastId+1;
             _fighters.Add(fighter);
         }
 
         public void RemoveFighter(int id)
         {
-            var fighter = _fighters.Where(f => f.GetId() == id).FirstOrDefault();
+            var fighter = _fighters.Where(f => f.Id == id).FirstOrDefault();
             _fighters.Remove(fighter);
         }
 
@@ -60,14 +49,15 @@ namespace BattleRise.Models
 
         public void UpdateFighter(IFighter fighter)
         {
-            var id = fighter.GetId();
-            _fighters.Remove(_fighters.Where(f => f.GetId() == id).FirstOrDefault());
+            var id = fighter.Id;
+            _fighters.Remove(_fighters.Where(f => f.Id == id).FirstOrDefault());
             _fighters.Add(fighter);
         }
 
         public void UpdateFighters(List<IFighter> fighters)
         {
-            _fighters = fighters;
+            _fighters.Clear();
+            _fighters.AddRange(fighters);
         }
     }
 }

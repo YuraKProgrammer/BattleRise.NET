@@ -37,9 +37,8 @@ namespace BattleRise.DesktopClient.UserControls
                 _text.Text = _fightersGroup.count.ToString();
             }
         }
-        public FighterButton(FightersGroup fightersGroup)
+        public FighterButton(FightersGroup fightersGroup) : this()
         { 
-            InitializeComponent();
             _fightersGroup = fightersGroup;
             _image.Source=new BitmapImage(fightersGroup.fighter.GetFileFolder());
         }
