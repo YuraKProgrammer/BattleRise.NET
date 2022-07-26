@@ -29,7 +29,7 @@ namespace BattleRise.DesktopClient.Windows
         private int _diamonds;
         private int _castleLevel;
         private const int _secLevelCost = 2500;
-        private const int _maxCatleLevel = 5;
+        private const int _maxCatleLevel = 10;
         private int _levelUpCost;
         private TempSaveStorage _saveStorage = new TempSaveStorage();
         public GameWindow(Save save)
