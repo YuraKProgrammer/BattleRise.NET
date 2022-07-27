@@ -1,6 +1,8 @@
 ﻿using BattleRise.DesktopClient.Windows;
+using BattleRise.Models.Fighters;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +30,12 @@ namespace BattleRise.DesktopClient
             if (sett.Version != null)
             {
                 text_version.Text = "Версия: " + sett.Version;
+            }
+            var myType = typeof(Warrior);
+            var p = myType.GetProperties();
+            foreach(var prop in p)
+            {
+                Debug.WriteLine(prop);
             }
         }
 

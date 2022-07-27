@@ -1,4 +1,5 @@
 ﻿using BattleRise.Models;
+using BattleRise.Models.SaveToFile;
 using Newtonsoft.Json;
 using System.Text.Json;
 
@@ -6,27 +7,28 @@ namespace BattleRise.SaveStorage
 {
     public class TempSaveStorage
     {
-        private List<Save> saves = new List<Save>();
+        private List<SSave> sSaves = new List<SSave>();
         public void Save(Save save)
         {
             LoadSaves();
-            saves.Add(save);
+            sSaves.Add(SaveConverter.ToSSave(save));
             var options = new JsonSerializerOptions { WriteIndented = true };
-            string json = System.Text.Json.JsonSerializer.Serialize(saves, options);
+            string json = System.Text.Json.JsonSerializer.Serialize(sSaves, options);
             File.WriteAllText(@"D:\BattleRiseSaves.json", json);
         }
 
         public Save Load(int userId)
         {
             LoadSaves();
-            var savesOfId = saves.Where(s => s.GetUserId() == userId);
+            var savesOfId = sSaves.Where(s => s.GetUserId() == userId);
             if (savesOfId.Count()==0 || savesOfId==null)
             {
                 return null;
             }
             else
             {
-                return savesOfId.Last();
+                var s = SaveConverter.ToSave(savesOfId.Last());
+                return s;
             }
         }
 
@@ -34,7 +36,7 @@ namespace BattleRise.SaveStorage
         {
             if (File.Exists("D:\\BattleRiseSaves.json")) 
             {
-                saves = JsonConvert.DeserializeObject<List<Save>>(File.ReadAllText("D:\\BattleRiseSaves.json")).ToList();
+                sSaves = JsonConvert.DeserializeObject<List<SSave>>(File.ReadAllText("D:\\BattleRiseSaves.json")).ToList();
             }
         }
     }
