@@ -12,50 +12,25 @@ namespace BattleRise.Models.SaveToFile
 
         public SArmy(List<SFighter> fighters)
         {
-            _fighters.AddRange(fighters);
+            var fl = _fighters.ToList();
+            fl.AddRange(fighters);
+            _fighters = fl.ToArray();
             if (fighters != null)
-                lastId = fighters.Count;
+                lastId = fighters.Count();
         }
 
-        private readonly List<SFighter> _fighters = new List<SFighter>();
+        private readonly SFighter[] _fighters = new SFighter[] { };
         public SFighter GetById(int id)
         {
             return _fighters.Where(f => f.id == id).FirstOrDefault();
         }
         public int GetArmySize()
         {
-                return _fighters.Count;
+                return _fighters.Length;
         }
-
-        public void AddFighter(SFighter fighter)
-        {
-            fighter.id = lastId + 1;
-            lastId = lastId + 1;
-            _fighters.Add(fighter);
-        }
-
-        public void RemoveFighter(int id)
-        {
-            var fighter = _fighters.Where(f => f.id == id).FirstOrDefault();
-            _fighters.Remove(fighter);
-        }
-
         public List<SFighter> GetFighters()
         {
-            return _fighters;
-        }
-
-        public void UpdateFighter(SFighter fighter)
-        {
-            var id = fighter.id;
-            _fighters.Remove(_fighters.Where(f => f.id == id).FirstOrDefault());
-            _fighters.Add(fighter);
-        }
-
-        public void UpdateFighters(List<SFighter> fighters)
-        {
-            _fighters.Clear();
-            _fighters.AddRange(fighters);
+            return _fighters.ToList();
         }
     }
 }
