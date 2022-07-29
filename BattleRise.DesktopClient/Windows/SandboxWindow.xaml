@@ -18,18 +18,7 @@
                 <RadioButton x:Name="Friend" Content="Свой"/>
                 <RadioButton x:Name="Enemy" Content="Враг"/>
             </MenuItem>
-            <MenuItem Header="Тип">
-                <RadioButton Content="Солдат" x:Name="_warrior"/>
-                <RadioButton Content="Лучник" x:Name="_archer"/>
-                <RadioButton Content="Зомби" x:Name="_zombie"/>
-                <RadioButton Content="Скелет" x:Name="_skeleton"/>
-                <RadioButton Content="Великан" x:Name="_littleGiant"/>
-                <RadioButton Content="Рыцарь" x:Name="_knight"/>
-                <RadioButton Content="Гоблин" x:Name="_goblin"/>
-                <RadioButton Content="Орк" x:Name="_orc"/>
-                <RadioButton Content="Тролль" x:Name="_troll"/>
-                <RadioButton Content="Маг" x:Name="_magician"/>
-            </MenuItem>
+            <MenuItem Header="Тип" x:Name="mi_type"/>
             <TextBlock Text="Уровень:"/>
             <TextBox x:Name="level"/>
             <MenuItem Header="Сражение">

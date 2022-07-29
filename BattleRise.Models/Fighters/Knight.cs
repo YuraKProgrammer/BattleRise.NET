@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleRise.Models.Fighters
 {
+    [Fighter("Рыцарь", FighterType.Knight)]
     public class Knight : FighterBase, IFighter, IHasPosition
     {
         public string name { get; }

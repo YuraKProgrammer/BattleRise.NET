@@ -187,7 +187,7 @@ namespace BattleRise.DesktopClient.Windows
             {
                 currentFighter.SetX(px);
                 currentFighter.SetY(py);
-                _army = _battle.AddFighterToBattle(_army, currentFighter);
+                _army = _battle.AddFighterToBattle(_army, currentFighter); 
             }
             ArmyToFightersPanel();
             DrawBattleField();

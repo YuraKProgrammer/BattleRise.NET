@@ -26,17 +26,7 @@ namespace BattleRise.DesktopClient
         public MainWindow()
         {
             InitializeComponent();
-            var sett = new Settings();
-            if (sett.Version != null)
-            {
-                text_version.Text = "Версия: " + sett.Version;
-            }
-            var myType = typeof(Warrior);
-            var p = myType.GetProperties();
-            foreach(var prop in p)
-            {
-                Debug.WriteLine(prop);
-            }
+            text_version.Text = "Версия: " + typeof(MainWindow).Assembly.GetName().Version; 
         }
 
         private void OnAboutClick(object sender, RoutedEventArgs e)

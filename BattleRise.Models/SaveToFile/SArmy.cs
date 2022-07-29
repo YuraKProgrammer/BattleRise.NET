@@ -12,11 +12,13 @@ namespace BattleRise.Models.SaveToFile
 
         public SArmy(List<SFighter> fighters)
         {
-            var fl = _fighters.ToList();
-            fl.AddRange(fighters);
-            _fighters = fl.ToArray();
             if (fighters != null)
+            {
+                var fl = _fighters.ToList();
+                fl.AddRange(fighters);
+                _fighters = fl.ToArray();
                 lastId = fighters.Count();
+            }
         }
 
         private readonly SFighter[] _fighters = new SFighter[] { };

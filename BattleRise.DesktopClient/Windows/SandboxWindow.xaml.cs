@@ -3,6 +3,7 @@ using BattleRise.Models.Fighters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
@@ -28,15 +29,48 @@ namespace BattleRise.DesktopClient.Windows
         private int _selectedFighterLevel=0;
         private Side _selectedSide=Side.Friend;
         private readonly System.Timers.Timer _timer;
-        private static readonly TimeSpan TimerInterval = TimeSpan.FromMilliseconds(150); 
+        private static readonly TimeSpan TimerInterval = TimeSpan.FromMilliseconds(150);
 
         public SandboxWindow()
         {
             InitializeComponent();
+            var types = typeof(IFighter).Assembly.GetTypes()
+                .Where(t => t.IsClass && !t.IsAbstract)
+                .Where(t => typeof(IFighter).IsAssignableFrom(t));
+            types = types.OrderBy(t =>
+            {
+                var atr = t.GetCustomAttribute<FighterAttribute>();
+                return atr.Name;
+            });
+            foreach (var type in types)
+            {
+                var atr = type.GetCustomAttribute<FighterAttribute>();
+                MenuItem mi = new MenuItem
+                {
+                    Header = atr.Name,
+                    IsCheckable = true,
+                    Tag = type
+                };
+                mi.Checked += Mi_Checked;
+                mi_type.Items.Add(mi);
+            }
             _battle = new Battle(1920, 1080);
             DrawBattleField();
             _timer = new System.Timers.Timer() { Interval = TimerInterval.TotalMilliseconds, AutoReset = true};
             _timer.Elapsed += OnTimer;
+        }
+
+        private void Mi_Checked(object sender, RoutedEventArgs e)
+        {
+            var checkedMi = (MenuItem)sender;
+            var t = (Type)checkedMi.Tag;
+            var ft = t.GetCustomAttribute<FighterAttribute>().FighterType;
+            _selectedFighter = ft;
+            foreach(MenuItem mi in mi_type.Items)
+            {
+                if (mi != checkedMi)
+                    mi.IsChecked = false;
+            }
         }
 
         private void OnTimer(object sender, ElapsedEventArgs e)
@@ -148,48 +182,11 @@ namespace BattleRise.DesktopClient.Windows
             _canvas.Children.Add(image);
         }
 
-        private void CheckSelected()
-        {
-            if (_warrior.IsChecked == true)
-            {
-                _selectedFighter = FighterType.Warrior;
-            }
-            if (_archer.IsChecked == true)
-            {
-                _selectedFighter = FighterType.Archer;
-            }
-            if (_zombie.IsChecked == true)
-            {
-                _selectedFighter = FighterType.Zombie;
-            }
-            if (_skeleton.IsChecked == true)
-            {
-                _selectedFighter = FighterType.Skeleton;
-            }
-            if (_littleGiant.IsChecked == true)
-            {
-                _selectedFighter = FighterType.LittleGiant;
-            }
-            if (_knight.IsChecked == true)
-            {
-                _selectedFighter = FighterType.Knight;
-            }
-            if (_goblin.IsChecked == true)
-            {
-                _selectedFighter = FighterType.Goblin;
-            }
-            if (_orc.IsChecked == true)
-            {
-                _selectedFighter = FighterType.Orc;
-            }
-            if (_troll.IsChecked == true)
-            {
-                _selectedFighter = FighterType.Troll;
-            }
-            if (_magician.IsChecked == true)
-            {
-                _selectedFighter = FighterType.Magician;
-            }
+        private void SetFighterOnField(object sender, MouseButtonEventArgs e)
+        { 
+            var pos = e.GetPosition(_canvas);
+            var x = (int)(pos.X - _fighterImageSize / 2);
+            var y = (int)(pos.Y - _fighterImageSize / 2);
             if (Friend.IsChecked == true)
             {
                 _selectedSide = Side.Friend;
@@ -198,21 +195,7 @@ namespace BattleRise.DesktopClient.Windows
             {
                 _selectedSide = Side.Enemy;
             }
-            if (level.Text != null)
-            {
-                _selectedFighterLevel = Int32.Parse(level.Text);
-            }
-            else
-                _selectedFighterLevel = 1;
-        }
-
-        private void SetFighterOnField(object sender, MouseButtonEventArgs e)
-        { 
-            var pos = e.GetPosition(_canvas);
-            var x = (int)(pos.X - _fighterImageSize / 2);
-            var y = (int)(pos.Y - _fighterImageSize / 2);
             IFighter currentFighter = new Warrior(_selectedFighterLevel, x, y, _selectedSide);
-            CheckSelected();
             if (_selectedFighter == FighterType.Warrior)
             {
                 currentFighter = new Warrior(_selectedFighterLevel, x, y, _selectedSide);
