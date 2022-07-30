@@ -23,11 +23,13 @@ namespace BattleRise.DesktopClient.Windows
     {
         private Save _save;
         private bool _nw;
-        public StartGameWindow(Save save, bool nw)
+        private MainWindow _mainWindow;
+        public StartGameWindow(Save save, bool nw, MainWindow mainWindow)
         {
             InitializeComponent();
             this._save = save;
             _nw = nw;
+            _mainWindow = mainWindow;
             TuneControls();
         }
 
@@ -38,13 +40,13 @@ namespace BattleRise.DesktopClient.Windows
 
         public void OnContinueClick(object sender, RoutedEventArgs e)
         {
-            var window = new GameWindow(_save) {Owner=this };
+            var window = new GameWindow(_save, _mainWindow) {Owner=this };
             window.ShowDialog();
         }
 
         public void OnNewClick(object sender, RoutedEventArgs e)
         {
-            var window = new GameWindow(new Save(DateTime.Now, _save.userId, new Resources(100, 0), new Army(new List<IFighter>()), new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, 1)) { Owner = this };
+            var window = new GameWindow(new Save(DateTime.Now, _save.userId, new Resources(100, 0), new Army(new List<IFighter>()), new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, 1), _mainWindow) { Owner = this };
             window.ShowDialog();
         }
 

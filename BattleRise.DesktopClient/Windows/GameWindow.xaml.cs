@@ -31,8 +31,9 @@ namespace BattleRise.DesktopClient.Windows
         private const int _secLevelCost = 2500;
         private const int _maxCatleLevel = 10;
         private int _levelUpCost;
+        private MainWindow _mainWindow;
         private TempSaveStorage _saveStorage = new TempSaveStorage();
-        public GameWindow(Save save)
+        public GameWindow(Save save, MainWindow mainWindow)
         {
             InitializeComponent();
             _saveTime = save.saveTime;
@@ -42,6 +43,7 @@ namespace BattleRise.DesktopClient.Windows
             _coins = save.res.coins;
             _diamonds = save.res.diamonds;
             _castleLevel = save.castleLevel;
+            _mainWindow = mainWindow;
             Update();
         }
 
@@ -83,7 +85,7 @@ namespace BattleRise.DesktopClient.Windows
 
         public void ComeInClick(object sender, RoutedEventArgs e)
         {
-            var window = new CastleWindow(new Save(_saveTime, _userId, new Resources(_coins, _diamonds), _army, _fightersLevels, _castleLevel));
+            var window = new CastleWindow(new Save(_saveTime, _userId, new Resources(_coins, _diamonds), _army, _fightersLevels, _castleLevel), _mainWindow);
             window.ShowDialog();
         }
 
@@ -93,9 +95,17 @@ namespace BattleRise.DesktopClient.Windows
             MessageBox.Show("Игра сохранена", "Сохранение");
         }
 
+        public void OnSaveExitClick(object sender, RoutedEventArgs e)
+        {
+            _saveStorage.Save(new Save(DateTime.Now, _userId, new Resources(_coins, _diamonds), _army, _fightersLevels, _castleLevel));
+            MessageBox.Show("Игра сохранена", "Сохранение");
+            _mainWindow.Close();
+            DialogResult = true;
+        }
+
         public void OnChooseLevelClick(object sender, RoutedEventArgs e)
         {
-            var window = new ChooseLevelWindow(new Save(_saveTime, _userId, new Resources(_coins, _diamonds), _army, _fightersLevels, _castleLevel)) { Owner = this };
+            var window = new ChooseLevelWindow(new Save(_saveTime, _userId, new Resources(_coins, _diamonds), _army, _fightersLevels, _castleLevel), _mainWindow) { Owner = this };
             window.ShowDialog();
         }
 

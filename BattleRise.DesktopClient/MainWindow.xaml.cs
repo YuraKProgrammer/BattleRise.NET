@@ -37,7 +37,7 @@ namespace BattleRise.DesktopClient
 
         private void OnLoginClick(object sender, RoutedEventArgs e)
         {
-            var window = new LoginWindow() { Owner = this };
+            var window = new LoginWindow(this) { Owner = this };
             window.ShowDialog();
         }
 

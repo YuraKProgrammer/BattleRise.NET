@@ -27,10 +27,12 @@ namespace BattleRise.DesktopClient.Windows
         private int _currentLevelNumber = 0;
         private List<Level> _levels = new List<Level>();
         private LevelsLoader levelsLoader = new LevelsLoader();
-        public ChooseLevelWindow(Save save)
+        private MainWindow _mainWindow;
+        public ChooseLevelWindow(Save save, MainWindow mainWindow)
         {
             InitializeComponent();
             _save = save;
+            _mainWindow = mainWindow;
             if (save.army.GetFighters() != null)
             {
                 text_army.Text = "Армия: "+save.army.GetFighters().Count();
@@ -58,7 +60,7 @@ namespace BattleRise.DesktopClient.Windows
 
         public void OnStartClick(object sender, RoutedEventArgs e)
         {
-            var window = new BattleWindow(_save, _levels.ToArray()[_currentLevelNumber]) { Owner = this };
+            var window = new BattleWindow(_save, _levels.ToArray()[_currentLevelNumber], _mainWindow) { Owner = this };
             window.ShowDialog();
         }
 

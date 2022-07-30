@@ -34,8 +34,9 @@ namespace BattleRise.DesktopClient.Windows
         private const int x = 0;
         private const int y = 0;
         private const Side side = Side.Friend;
+        private MainWindow _mainWindow;
         private FightersLoader fightersLoader = new FightersLoader();
-        public CastleWindow(Save save)
+        public CastleWindow(Save save, MainWindow mainWindow)
         {
             InitializeComponent();
             _coins = save.res.coins;
@@ -45,6 +46,7 @@ namespace BattleRise.DesktopClient.Windows
             _userId = save.userId;
             _currentfighterNumber = 0;
             _army = save.army;
+            _mainWindow = mainWindow;
             LoadFighters();
             Update();
         }
@@ -138,7 +140,7 @@ namespace BattleRise.DesktopClient.Windows
 
         public void OnExitClick(object sender, RoutedEventArgs e)
         {
-            var window = new GameWindow(new Save(DateTime.Now, _userId, new Resources(_coins, _diamonds), _army, _fightersLevels, _castleLevel)) { Owner = this };
+            var window = new GameWindow(new Save(DateTime.Now, _userId, new Resources(_coins, _diamonds), _army, _fightersLevels, _castleLevel), _mainWindow) { Owner = this };
             window.ShowDialog();
         }
 

@@ -23,8 +23,10 @@ namespace BattleRise.DesktopClient.Windows
     public partial class LoginWindow : Window
     {
         private TempSaveStorage _saveStorage = new TempSaveStorage();
-        public LoginWindow()
+        private MainWindow _mainWindow;
+        public LoginWindow(MainWindow mainWindow)
         {
+            _mainWindow = mainWindow;
             InitializeComponent();
         }
 
@@ -51,7 +53,7 @@ namespace BattleRise.DesktopClient.Windows
                     nw = true;
                     save = new Save(DateTime.Now, userId, new Resources(100, 0), new Army(new List<IFighter>()), new int[]{1,1,1,1,1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, 1);
                 }
-                var window = new StartGameWindow(save, nw) { Owner = this };
+                var window = new StartGameWindow(save, nw, _mainWindow) { Owner = this };
                 window.ShowDialog();
             }
             else

@@ -36,9 +36,10 @@ namespace BattleRise.DesktopClient.Windows
         private int _castleLevel;
         private int[] _fightersLevels;
         private int _fighterImageSize = 40;
+        private MainWindow _mainWindow;
         private readonly System.Timers.Timer _timer;
         private static readonly TimeSpan TimerInterval = TimeSpan.FromMilliseconds(150);
-        public BattleWindow(Save save, Level level)
+        public BattleWindow(Save save, Level level, MainWindow mainWindow)
         {
             InitializeComponent();
             _battle = new Battle(level, 1920, 1080);
@@ -53,6 +54,7 @@ namespace BattleRise.DesktopClient.Windows
             ArmyToFightersPanel();
             _timer = new System.Timers.Timer() { Interval = TimerInterval.TotalMilliseconds, AutoReset = true };
             _timer.Elapsed += OnTimer;
+            _mainWindow = mainWindow;
         }
 
         private void ArmyToFightersPanel()
@@ -96,7 +98,7 @@ namespace BattleRise.DesktopClient.Windows
                     Pause.IsEnabled = false;
                     MessageBox.Show("Вы победили!", "Победа");
                     _coins = _coins + _reward;
-                    var window = new GameWindow(new Save(DateTime.Now, _userId, new Models.Resources(_coins,_diamonds), _army, _fightersLevels, _castleLevel));
+                    var window = new GameWindow(new Save(DateTime.Now, _userId, new Models.Resources(_coins,_diamonds), _army, _fightersLevels, _castleLevel), _mainWindow);
                     window.ShowDialog();
                 }
                 if (_battle._fullArmy.GetFighters().Where(f => f.GetSide() == Side.Friend).Count() == 0)
@@ -105,7 +107,7 @@ namespace BattleRise.DesktopClient.Windows
                     Start.IsEnabled = false;
                     Pause.IsEnabled = false;
                     MessageBox.Show("Вы проиграли!", "Проигрыш");
-                    var window = new GameWindow(new Save(DateTime.Now, _userId, new Models.Resources(_coins, _diamonds), _army, _fightersLevels, _castleLevel));
+                    var window = new GameWindow(new Save(DateTime.Now, _userId, new Models.Resources(_coins, _diamonds), _army, _fightersLevels, _castleLevel), _mainWindow);
                     window.ShowDialog();
                 }
             }
