@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -84,24 +85,16 @@ namespace BattleRise.DesktopClient.Windows
 
         private string GetElementName(Element element)
         {
-            switch (element)
+            var fields = typeof(Element).GetFields().Where(f => f.FieldType == typeof(Element));
+            foreach(var field in fields)
             {
-                case Element.Fire: return "Огонь";
-                case Element.Wind: return "Ветер";
-                case Element.Earth: return "Земля";
-                case Element.Water: return "Вода";
-                case Element.Life: return "Жизнь";
-                case Element.Energy: return "Энергия";
-                case Element.Metal: return "Металл";
-                case Element.Strength: return "Сила";
-                case Element.Destruction: return "Разрушение";
-                case Element.Creation: return "Создание";
-                case Element.Shadow: return "Тень";
-                case Element.Light: return "Свет";
-                case Element.Recovery: return "Восстановление";
-                case Element.Random: return "Случайность";
-                default: return "Земля";
+                if ((int)field.GetValue(element) == (int)element)
+                {
+                    var e = field.GetCustomAttribute<ElementAttribute>();
+                    return e.Name;
+                }
             }
+            throw new NotImplementedException();
         }
 
         private void DrawImage()
