@@ -119,6 +119,31 @@ namespace BattleRise.DesktopClient.Windows
 
         private void StartClick(object sender, EventArgs e)
         {
+            if (s1.IsChecked == true)
+            {
+                TimeSpan ts = TimeSpan.FromMilliseconds(300);
+                _timer.Interval = ts.TotalMilliseconds;
+            }
+            if (s2.IsChecked == true)
+            {
+                TimeSpan ts = TimeSpan.FromMilliseconds(225);
+                _timer.Interval = ts.TotalMilliseconds;
+            }
+            if (s3.IsChecked == true)
+            {
+                TimeSpan ts = TimeSpan.FromMilliseconds(150);
+                _timer.Interval = ts.TotalMilliseconds;
+            }
+            if (s4.IsChecked == true)
+            {
+                TimeSpan ts = TimeSpan.FromMilliseconds(112);
+                _timer.Interval = ts.TotalMilliseconds;
+            }
+            if (s5.IsChecked == true)
+            {
+                TimeSpan ts = TimeSpan.FromMilliseconds(75);
+                _timer.Interval = ts.TotalMilliseconds;
+            }
             _timer.Start();
             Start.IsEnabled = false;
             Pause.IsEnabled = true;

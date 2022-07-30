@@ -22,6 +22,13 @@
             <TextBlock Text="Уровень:"/>
             <TextBox x:Name="level"/>
             <MenuItem Header="Сражение">
+                <MenuItem Header="Скорость">
+                    <RadioButton Content="Очень медленно" x:Name="s1"/>
+                    <RadioButton Content="Медленно" x:Name="s2"/>
+                    <RadioButton Content="Нормально" x:Name="s3" IsChecked="True"/>
+                    <RadioButton Content="Быстро" x:Name="s4"/>
+                    <RadioButton Content="Очень быстро" x:Name="s5"/>
+                </MenuItem>
                 <MenuItem x:Name="Start" Header="Начать" Click="StartClick"/>
                 <MenuItem x:Name="Pause" Header="Пауза" Click="PauseClick" IsEnabled="False"/>
             </MenuItem>

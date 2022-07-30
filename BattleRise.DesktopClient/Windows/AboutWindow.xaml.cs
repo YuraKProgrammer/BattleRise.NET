@@ -24,10 +24,7 @@ namespace BattleRise.DesktopClient.Windows
         {
             InitializeComponent();
             var sett = new Settings();
-            if (sett.Version != null)
-            {
-                About.Text = "Эта программа создана Калантырем Ю.С. Версия: " + typeof(MainWindow).Assembly.GetName().Version;
-            }
+            About.Text = "Эта программа создана Калантырем Ю.С. Версия: " + typeof(MainWindow).Assembly.GetName().Version;
         }
     }
 }
