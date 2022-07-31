@@ -103,9 +103,7 @@ namespace BattleRise.Models.Fighters
 
         public int GetRangeToTarget(IFighter fighter)
         {
-            var enemy = fighter;
-            var range = (int)Math.Sqrt(Math.Abs(x * x - enemy.GetX() * enemy.GetX()) + Math.Abs(y * y - enemy.GetY() * enemy.GetY()));
-            return range;
+            return fighter.GetDistance(this);
         }
 
         public int GetLevelUpCost()

@@ -35,11 +35,11 @@ namespace BattleRise.DesktopClient.Windows
             _mainWindow = mainWindow;
             if (save.army.GetFighters() != null)
             {
-                text_army.Text = "Армия: "+save.army.GetFighters().Count();
+                text_army.Text = "Ваша армия: "+save.army.GetFighters().Count();
             }
             else
             {
-                text_army.Text = "Армия: 0";
+                text_army.Text = "Ваша армия: 0";
             }
             LoadLevels();
             Update();
