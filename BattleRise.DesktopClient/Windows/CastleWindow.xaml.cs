@@ -70,7 +70,7 @@ namespace BattleRise.DesktopClient.Windows
             _fighters.TryGetValue(_currentfighterNumber, out _currentFighter);
             if (_currentFighter != null)
             {
-                text_namelevel.Text = _currentFighter.GetName() + " " + _currentFighter.GetLevel() + " уровня";
+                text_namelevel.Text = _currentFighter.GetName() + " " + _currentFighter.GetLevel() + " уровня (" + GetPowerName(_currentFighter.GetType().GetCustomAttribute<FighterAttribute>().FighterPower)+")";
                 text_health.Text = "Здоровье: " + _currentFighter.GetHealth();
                 text_damage.Text = "Урон: " + _currentFighter.GetDamage();
                 text_speed.Text = "Скорость: " + _currentFighter.GetSpeed();
@@ -92,6 +92,20 @@ namespace BattleRise.DesktopClient.Windows
                 {
                     var e = field.GetCustomAttribute<ElementAttribute>();
                     return e.Name;
+                }
+            }
+            throw new NotImplementedException();
+        }
+
+        private string GetPowerName(FighterPower power)
+        {
+            var fields = typeof(FighterPower).GetFields().Where(f => f.FieldType == typeof(FighterPower));
+            foreach (var field in fields)
+            {
+                if ((int)field.GetValue(power) == (int)power)
+                {
+                    var p = field.GetCustomAttribute<PowerAttribute>();
+                    return p.Name;
                 }
             }
             throw new NotImplementedException();

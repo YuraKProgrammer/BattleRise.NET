@@ -10,10 +10,12 @@ namespace BattleRise.Models.Fighters
     {
         public string Name { get; }
         public FighterType FighterType { get; }
-        public FighterAttribute(string name, FighterType fighterType)
+        public FighterPower FighterPower { get; }
+        public FighterAttribute(string name, FighterType fighterType, FighterPower fighterPower)
         {
             Name = name;
             FighterType = fighterType;
+            FighterPower = fighterPower;
         }
     }
 }
