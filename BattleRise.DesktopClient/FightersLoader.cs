@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace BattleRise.DesktopClient
 {
+    /// <summary>
+    /// Этот класс загружает бойцов в передаваемый Dictionary
+    /// </summary>
     public class FightersLoader : IFightersLoader
     {
         private const int x = 1;

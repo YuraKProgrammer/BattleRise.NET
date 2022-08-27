@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BattleRise.Models
 {
+    /// <summary>
+    /// Этот класс проверят, кто умер в армии, и убирает их
+    /// </summary>
     public class DeathController : IDeathController
     {
         public Army Control(Army army)

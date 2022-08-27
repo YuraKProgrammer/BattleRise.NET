@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace BattleRise.DesktopClient
 {
+    /// <summary>
+    /// Этот класс загружает уровни в передваемый List
+    /// </summary>
     public class LevelsLoader : ILevelsLoader
     {
         public List<Level> Load(List<Level> _levels)
