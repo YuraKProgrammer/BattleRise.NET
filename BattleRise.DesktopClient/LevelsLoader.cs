@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BattleRise.DesktopClient
 {
-    public class LevelsLoader
+    public class LevelsLoader : ILevelsLoader
     {
         public List<Level> Load(List<Level> _levels)
         {

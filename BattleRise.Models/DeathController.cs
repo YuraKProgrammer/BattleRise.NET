@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleRise.Models
 {
-    public class DeathController
+    public class DeathController : IDeathController
     {
         public Army Control(Army army)
         {

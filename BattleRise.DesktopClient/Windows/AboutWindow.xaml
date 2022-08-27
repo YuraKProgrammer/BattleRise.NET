@@ -10,8 +10,14 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TextBlock Margin="10" Text="Эта программа создана Калантырем Ю.С. Версия: " x:Name="About" FontSize="20" Grid.Row="0"/>
         <TextBlock Margin="10" Text="Это игра по типу 'Стенка на стенку'. Задача игры: Проходить уровни" FontSize="20" Grid.Row="1"/>
+        <TextBlock Margin="10" Text="Дата преальфы: 04.07.2022" FontSize="20" Grid.Row="2"/>
+        <TextBlock Margin="10" Text="Дата альфы: ---" FontSize="20" Grid.Row="3"/>
+        <TextBlock Margin="10" Text="Дата беты: ---" FontSize="20" Grid.Row="4"/>
     </Grid>
 </Window>

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BattleRise.DesktopClient
 {
-    public class FightersLoader
+    public class FightersLoader : IFightersLoader
     {
         private const int x = 1;
         private const int y = 1;
