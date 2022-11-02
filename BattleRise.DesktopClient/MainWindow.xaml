@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BattleRise.DesktopClient"
         mc:Ignorable="d"
-        Title="BattleRise Начало" Height="250" Width="384" WindowStartupLocation="CenterOwner">
+        Title="BattleRise Начало" Height="250" Width="384" WindowStartupLocation="CenterOwner" Icon="/BattleRise.DesktopClient;component/images/icon.ico">
     <Grid>
         <Image Source="/images/main.jpg"/>
         <TextBlock Text="Версия" x:Name="text_version" FontSize="20" Margin="0,0,0,191" Foreground="White"/>

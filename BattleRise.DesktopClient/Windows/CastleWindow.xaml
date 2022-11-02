@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BattleRise.DesktopClient.Windows"
         mc:Ignorable="d"
-        Title="Замок" Height="450" Width="600" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
+        Title="Замок" Height="450" Width="600" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" Icon="/BattleRise.DesktopClient;component/images/icon.ico">
     <Grid>
         <Image x:Name="_image" Width="225" Height="225" Margin="4,0,361,210" Source="D:\images\1.jpg"/>
         <TextBlock x:Name="text_money" FontSize="15" Margin="237,10,10,395"/>

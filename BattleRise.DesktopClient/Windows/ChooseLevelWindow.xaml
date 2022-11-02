@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BattleRise.DesktopClient.Windows"
         mc:Ignorable="d"
-        Title="Выбор уровня" Height="300" Width="450" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
+        Title="Выбор уровня" Height="300" Width="450" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" Icon="/BattleRise.DesktopClient;component/images/icon.ico">
     <Grid>
         <TextBlock Text="" x:Name="text_name" Height="30" FontSize="20" Margin="0,42,0,212"/>
         <TextBlock Text="" x:Name="text_army" Height="30" FontSize="20" Margin="0,7,0,247"/>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BattleRise.DesktopClient.Windows"
         xmlns:userControls="clr-namespace:BattleRise.DesktopClient.UserControls"
         mc:Ignorable="d"
-        Title="Сражение" Height="Auto" Width="Auto" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
+        Title="Сражение" Height="Auto" Width="Auto" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" Icon="/BattleRise.DesktopClient;component/images/icon.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

@@ -5,7 +5,7 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-    <AssemblyVersion>0.1.5.1</AssemblyVersion>
+    <AssemblyVersion>0.1.5.3</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -50,6 +50,7 @@
     <None Remove="images\9.2.jpg" />
     <None Remove="images\9.jpg" />
     <None Remove="images\background.jpg" />
+    <None Remove="images\icon.ico" />
     <None Remove="images\main.jpg" />
   </ItemGroup>
 
@@ -128,6 +129,7 @@
     <Resource Include="images\9.2.jpg" />
     <Resource Include="images\9.jpg" />
     <Resource Include="images\background.jpg" />
+    <Resource Include="images\icon.ico" />
     <Resource Include="images\main.jpg" />
   </ItemGroup>
 
